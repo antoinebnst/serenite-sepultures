@@ -8,6 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Styles de la carte Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -162,7 +164,7 @@
     </div>
   </section>
 
-  <!-- ZONE D'INTERVENTION AVEC CARTE INTERACTIVE -->
+  <!-- ZONE D'INTERVENTION AVEC CARTE ET ZONES COLORÉES -->
   <section id="secteur" class="container section">
     <div class="section-header">
       <h2>Périmètre d'Intervention</h2>
@@ -170,14 +172,13 @@
     </div>
     
     <div class="map-layout">
-      <!-- CARTE INTERACTIVE -->
+      <!-- CARTE AVEC ZONES SUR LIGNÉES -->
       <div class="map-wrapper">
-        <iframe 
-          title="Carte zone d'intervention Caen et Côte de Nacre"
-          src="https://www.openstreetmap.org/export/embed.html?bbox=-0.65%2C49.15%2C0.05%2C49.35&amp;layer=mapnik&amp;marker=49.2872%2C-0.3122" 
-          loading="lazy">
-        </iframe>
-        <span class="map-legend">📍 Repère : Hermanville-sur-Mer (Point de départ)</span>
+        <div id="map"></div>
+        <div class="map-legend-bar">
+          <span><strong style="color: #2E7D32;">● Zone Verte :</strong> Déplacement inclus (0-20 km)</span>
+          <span><strong style="color: #C5B382;">● Zone Or :</strong> Forfait +25 € (20-50 km)</span>
+        </div>
       </div>
 
       <!-- DÉTAIL DES ZONES -->
@@ -186,7 +187,7 @@
           <div class="zone-badge zone-inclus">Frais de déplacement inclus</div>
           <h3>📍 Zone Locale (0 à 20 km)</h3>
           <p><strong>Côte de Nacre & Littoral :</strong> Hermanville-sur-Mer, Ouistreham, Colleville-Montgomery, Lion-sur-Mer, Luc-sur-Mer, Langrune-sur-Mer, Saint-Aubin-sur-Mer, Bernières-sur-Mer, Courseulles-sur-Mer.</p>
-          <p><strong>Agglomération Caennaise :</strong> Caen (tous cimetières dont Parc et Paysager), Hérouville-Saint-Clair, Épron, Biéville-Beuville, Blainville-sur-Orne, Douvres-la-Délivrande, Saint-Contest...</p>
+          <p><strong>Agglomération Caennaise :</strong> Caen (tous cimetières), Hérouville-Saint-Clair, Épron, Biéville-Beuville, Blainville-sur-Orne, Douvres-la-Délivrande, Saint-Contest...</p>
         </div>
 
         <div class="zone-card">
@@ -206,6 +207,40 @@
       <p>Paiements sécurisés par carte bancaire via Stripe • Service artisanal écoresponsable.</p>
     </div>
   </footer>
+
+  <!-- SCRIPT DE LA CARTE AVEC ZONES COLORÉES -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script>
+    // Initialisation centrée sur Hermanville-sur-Mer
+    const map = L.map('map').setView([49.2872, -0.3122], 9);
+
+    // Fond de carte OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: '&copy; OpenStreetMap'
+    }).addTo(map);
+
+    // Zone Élargie (20 à 50 km) en Or Doux (#C5B382)
+    L.circle([49.2872, -0.3122], {
+      color: '#C5B382',
+      fillColor: '#C5B382',
+      fillOpacity: 0.18,
+      radius: 50000
+    }).addTo(map).bindPopup("<strong>Zone Élargie (20 à 50 km)</strong><br>Forfait +25 €");
+
+    // Zone Locale (0 à 20 km) en Vert Sauge / Nature (#8AA089)
+    L.circle([49.2872, -0.3122], {
+      color: '#4E7250',
+      fillColor: '#8AA089',
+      fillOpacity: 0.35,
+      radius: 20000
+    }).addTo(map).bindPopup("<strong>Zone Locale (0 à 20 km)</strong><br>Déplacement inclus");
+
+    // Marqueur central
+    L.marker([49.2872, -0.3122]).addTo(map)
+      .bindPopup("<strong>Sérénité Sépultures</strong><br>Hermanville-sur-Mer (Épicentre)")
+      .openPopup();
+  </script>
 
 </body>
 </html>
