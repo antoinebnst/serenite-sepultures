@@ -1,0 +1,45 @@
+:root {
+  --blue: #1E2A38;
+  --green: #8AA089;
+  --gold: #C5B382;
+  --bg: #F8F9FA;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: sans-serif; color: #333; background: #fff; line-height: 1.5; }
+.container { width: 90%; max-width: 960px; margin: 0 auto; }
+
+header { background: var(--blue); padding: 1rem 0; color: #fff; }
+.nav-box { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-weight: bold; letter-spacing: 1px; color: var(--gold); }
+.btn-top { background: var(--green); color: #fff; text-decoration: none; padding: 0.5rem 1rem; border-radius: 4px; font-size: 0.9rem; }
+
+.hero { background: var(--blue); color: #fff; text-align: center; padding: 3rem 0; border-top: 1px solid rgba(255,255,255,0.1); }
+.hero h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+.tagline { color: var(--gold); font-weight: bold; margin-bottom: 1rem; }
+.desc { max-width: 600px; margin: 0 auto 1.5rem; font-size: 1rem; opacity: 0.9; }
+.btn-main { background: var(--green); color: #fff; padding: 0.8rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: bold; display: inline-block; }
+
+.section { padding: 3rem 0; }
+.section h2 { text-align: center; margin-bottom: 2rem; color: var(--blue); }
+
+.grid { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.card { flex: 1; min-width: 280px; border: 1px solid #ddd; border-radius: 8px; padding: 1.5rem; display: flex; flex-direction: column; background: #fff; }
+.card.featured { border: 2px solid var(--gold); position: relative; }
+.badge { position: absolute; top: -10px; right: 15px; background: var(--gold); color: var(--blue); font-size: 0.75rem; font-weight: bold; padding: 0.2rem 0.5rem; border-radius: 3px; }
+.card h3 { color: var(--blue); margin-bottom: 0.3rem; }
+.card-desc { font-size: 0.85rem; color: #666; margin-bottom: 1rem; }
+.price { font-size: 2rem; font-weight: bold; color: var(--blue); margin-bottom: 1rem; }
+.price span { font-size: 0.9rem; font-weight: normal; color: #666; }
+.card ul { list-style: none; margin-bottom: 1.5rem; flex-grow: 1; }
+.card li { padding: 0.4rem 0; border-bottom: 1px solid #eee; font-size: 0.9rem; }
+.links { display: flex; flex-direction: column; gap: 0.5rem; }
+.btn-card { text-align: center; border: 1px solid var(--green); color: var(--green); padding: 0.5rem; text-decoration: none; border-radius: 4px; font-size: 0.85rem; font-weight: bold; }
+.btn-card-featured { background: var(--green); color: #fff; border: none; }
+
+.options-box { background: var(--bg); padding: 1rem 1.5rem; border-radius: 8px; }
+.opt-row { display: flex; justify-content: space-between; padding: 0.7rem 0; border-bottom: 1px solid #e2e2e2; font-size: 0.9rem; }
+.opt-row:last-child { border-bottom: none; }
+.opt-row strong { color: var(--green); }
+
+footer { background: var(--blue); color: #aaa; text-align: center; padding: 1.5rem 0; font-size: 0.8rem; margin-top: 2rem; }
