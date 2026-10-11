@@ -60,6 +60,7 @@
         <a href="#formules">Nos Formules</a>
         <a href="#options">Options</a>
         <a href="#secteur">Secteur</a>
+        <a href="#contact">Contact</a>
         <a href="https://billing.stripe.com/p/login/VOTRE_PORTAIL_STRIPE" class="btn-client" target="_blank" rel="noopener">Espace Client</a>
       </nav>
     </div>
@@ -78,6 +79,7 @@
       </p>
       <div class="hero-actions">
         <a href="#formules" class="btn-main">Commander un entretien</a>
+        <a href="#contact" class="btn-secondary">Demander un devis</a>
       </div>
       <div class="trust-bar">
         <div class="trust-item">📸 Rapport Photo/Vidéo HD sous 2h</div>
@@ -286,78 +288,4 @@
   <section id="secteur" class="container section">
     <div class="section-header">
       <h2>Périmètre d'Intervention</h2>
-      <p>Épicentre des interventions : Hermanville-sur-Mer (14880) — Rayon maximum de 40 min de trajet</p>
-    </div>
-    
-    <div class="map-layout">
-      <!-- CARTE LEAFLET -->
-      <div class="map-wrapper">
-        <div id="map"></div>
-        <div class="map-legend-bar">
-          <span><strong style="color: #2E7D32;">● Zone Verte :</strong> Déplacement inclus (&lt; 20 min)</span>
-          <span><strong style="color: #C5B382;">● Zone Or :</strong> Forfait +25 € (20 à 40 min)</span>
-        </div>
-      </div>
-
-      <!-- DÉTAIL DES ZONES -->
-      <div class="zones-detail">
-        <div class="zone-card">
-          <div class="zone-badge zone-inclus">Frais de déplacement inclus</div>
-          <h3>📍 Zone Locale (&lt; 20 min de route)</h3>
-          <p><strong>Côte de Nacre & Littoral :</strong> Hermanville-sur-Mer, Ouistreham, Colleville-Montgomery, Lion-sur-Mer, Luc-sur-Mer, Langrune-sur-Mer, Saint-Aubin-sur-Mer, Bernières-sur-Mer, Courseulles-sur-Mer.</p>
-          <p><strong>Agglomération Caennaise :</strong> Caen (tous cimetières), Hérouville-Saint-Clair, Épron, Biéville-Beuville, Blainville-sur-Orne, Douvres-la-Délivrande, Saint-Contest...</p>
-        </div>
-
-        <div class="zone-card">
-          <div class="zone-badge zone-supp">+ 25 € par déplacement</div>
-          <h3>🚗 Zone Élargie (20 à 40 min de route)</h3>
-          <p><strong>Côte Fleurie :</strong> Cabourg, Dives-sur-Mer, Houlgate, Villers-sur-Mer, Deauville, Trouville-sur-Mer.</p>
-          <p><strong>Bessin & Plaine :</strong> Bayeux, Creully-sur-Seulles, Tilly-sur-Seulles, Mézidon...</p>
-          <p class="zone-note"><em>Au-delà de 40 min (Falaise, Lisieux...) : intervention uniquement sur devis spécifique.</em></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container footer-content">
-      <p>&copy; 2026 Sérénité Sépultures — Caen & Côte de Nacre (Calvados - 14).</p>
-      <p>Paiements sécurisés par carte bancaire via Stripe • Service artisanal écoresponsable.</p>
-    </div>
-  </footer>
-
-  <!-- SCRIPT LEAFLET (CALIBRÉ 40 MIN) -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  <script>
-    const map = L.map('map').setView([49.2872, -0.3122], 10);
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 18,
-      attribution: '&copy; OpenStreetMap'
-    }).addTo(map);
-
-    // Zone 2 : 20 à 40 min de trajet (35 km)
-    L.circle([49.2872, -0.3122], {
-      color: '#C5B382',
-      fillColor: '#C5B382',
-      fillOpacity: 0.18,
-      radius: 35000
-    }).addTo(map).bindPopup("<strong>Zone Élargie (20 à 40 min)</strong><br>Forfait +25 € (Cabourg, Deauville, Bayeux)");
-
-    // Zone 1 : Moins de 20 min (18 km)
-    L.circle([49.2872, -0.3122], {
-      color: '#4E7250',
-      fillColor: '#8AA089',
-      fillOpacity: 0.35,
-      radius: 18000
-    }).addTo(map).bindPopup("<strong>Zone Locale (&lt; 20 min)</strong><br>Déplacement inclus (Caen & Côte de Nacre)");
-
-    // Marqueur Épicentre
-    L.marker([49.2872, -0.3122]).addTo(map)
-      .bindPopup("<strong>Sérénité Sépultures</strong><br>Hermanville-sur-Mer (Épicentre)")
-      .openPopup();
-  </script>
-
-</body>
-</html>
+      <p>Épicentre des interventions : Hermanville-sur-Mer (14880) — Rayon maximum de 40 min de trajet</
