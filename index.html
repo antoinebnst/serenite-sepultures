@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sérénité Sépultures | Entretien & Fleurissement de Sépultures à Caen (14)</title>
-  <meta name="description" content="Artisan spécialisé dans l'entretien doux écologique et le fleurissement de sépultures à Caen et sur la Côte de Nacre.">
   
+  <title>Sérénité Sépultures | Entretien & Fleurissement à Caen (14)</title>
+  <meta name="description" content="Artisanat du souvenir : entretien manuel écologique, démoussage doux et fleurissement de sépultures à Caen et sur la Côte de Nacre.">
+
+  <!-- Polices & Leaflet CSS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Feuille de style Leaflet -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -31,6 +31,7 @@
         <a href="#presentation">Qui suis-je ?</a>
         <a href="#engagements">Engagements</a>
         <a href="#formules">Formules</a>
+        <a href="#options">Options</a>
         <a href="#secteur">Secteur</a>
         <a href="#contact" class="nav-contact-btn">
           <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -47,31 +48,43 @@
   <section class="hero">
     <div class="container hero-content">
       <div class="hero-logo-box">
-        <img src="logo.png" alt="Logo Sérénité Sépultures" class="hero-logo" onerror="this.style.display='none'">
+        <img src="logo.png" alt="Logo Sérénité Sépultures" class="hero-logo" onerror="this.onerror=null; this.src='logo.jpg';">
       </div>
       <h1>Entretien & Fleurissement de Sépultures à Caen et dans le Calvados</h1>
       <p class="tagline">Mémoire • Respect • Sérénité</p>
-      <p class="desc">Prenez soin du souvenir de vos proches à distance. Brossage doux manuel, fleurissement local et envoi d'un bilan photo & vidéo HD après chaque intervention.</p>
+      <p class="desc">
+        Prenez soin du souvenir de vos proches à distance. Brossage doux manuel sans Kärcher, fleurissement local et envoi d'un bilan photo & vidéo HD après chaque intervention.
+      </p>
       <div class="hero-actions">
         <a href="#formules" class="btn-main">Nos Formules</a>
         <a href="#contact" class="btn-secondary">Nous Contacter</a>
       </div>
+      <div class="trust-bar">
+        <div class="trust-item">📸 Rapport Photo/Vidéo HD sous 2h</div>
+        <div class="trust-item">🌿 Nettoyage manuel biodégradable</div>
+        <div class="trust-item">📍 Ancrage Côte de Nacre & Caen</div>
+      </div>
     </div>
   </section>
 
-  <!-- SECTION QUI SUIS-JE -->
+  <!-- QUI SUIS-JE -->
   <section id="presentation" class="container section">
     <div class="about-grid">
       <div class="about-text">
         <span class="sub-badge">Artisanat & Proximité</span>
         <h2>Qui suis-je ?</h2>
-        <p class="lead">Habitant attaché à notre littoral normand et fondateur de Sérénité Sépultures, j'ai créé ce service à partir d'un constat humain et sincère.</p>
-        <p>Avec l'éloignement géographique et les contraintes de mobilité, beaucoup ne peuvent plus fleurir ou entretenir la sépulture de leurs proches aussi souvent qu'ils le souhaitent. Mon rôle est d'être votre relais de confiance sur place.</p>
+        <p class="lead">
+          Habitant attaché à notre littoral normand et fondateur de Sérénité Sépultures, j'ai créé ce service à partir d'un constat humain et sincère.
+        </p>
+        <p>
+          Avec l'éloignement géographique et les contraintes de mobilité, beaucoup ne peuvent plus fleurir ou entretenir la sépulture de leurs proches aussi régulièrement qu'ils le souhaitent. Mon rôle est d'être votre relais de confiance sur place, avec la discrétion et le respect qu'exige chaque lieu de mémoire.
+        </p>
         <div class="about-signature">
           <strong>Votre artisan de confiance</strong>
           <span>Basé à Hermanville-sur-Mer (14880)</span>
         </div>
       </div>
+
       <div class="about-profile-card">
         <div class="profile-details">
           <div class="profile-tag">Artisan Indépendant</div>
@@ -80,8 +93,35 @@
             <li>📍 <strong>Épicentre :</strong> Hermanville-sur-Mer</li>
             <li>⏱️ <strong>Périmètre :</strong> 40 min de route max</li>
             <li>🌿 <strong>Méthode :</strong> 100% manuelle & écologique</li>
-            <li>📸 <strong>Suivi :</strong> Rapport photo HD sous 2h</li>
+            <li>🤝 <strong>Service :</strong> Écoute directe sans intermédiaire</li>
           </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENGAGEMENTS -->
+  <section id="engagements" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2>Notre Exigence & Qualité de Service</h2>
+        <p>Ce qui nous distingue : une attention méticuleuse portée à chaque pierre.</p>
+      </div>
+      <div class="quality-grid">
+        <div class="quality-card">
+          <div class="quality-icon">🌿</div>
+          <h3>Nettoyage Doux Manuel</h3>
+          <p>Jamais de nettoyeur haute pression qui use la pierre. Nettoyage doux à la main, savon neutre et anti-mousse biodégradable.</p>
+        </div>
+        <div class="quality-card">
+          <div class="quality-icon">📸</div>
+          <h3>Bilan Visuel HD sous 2h</h3>
+          <p>Dès la fin de chaque passage, recevez par SMS ou e-mail un rapport photo et vidéo Avant/Après complet en haute définition.</p>
+        </div>
+        <div class="quality-card">
+          <div class="quality-icon">🌸</div>
+          <h3>Fleurissement Local</h3>
+          <p>Chaque plante fraîche ou composition provient directement d'artisans fleuristes locaux (Caen, Ouistreham, Cabourg).</p>
         </div>
       </div>
     </div>
@@ -91,7 +131,7 @@
   <section id="formules" class="container section">
     <div class="section-header">
       <h2>Nos Formules d'Entretien</h2>
-      <p>À l'acte ou en formule régulière.</p>
+      <p>À l'acte pour un besoin ponctuel, ou en formule régulière.</p>
     </div>
     <div class="grid">
       <div class="card">
@@ -104,8 +144,13 @@
           <li>Lavage des plaques, vases et ornements</li>
           <li>Rapport photo HD Avant / Après</li>
         </ul>
-        <a href="#contact" class="btn-card">Demander cette formule</a>
+        <div class="links">
+          <a href="#contact" class="btn-card">Passage Unique — 79 €</a>
+          <a href="#contact" class="btn-card">Trimestriel (4/an) — 279 € / an</a>
+          <a href="#contact" class="btn-card">Mensuel (12/an) — 57,50 € / mois</a>
+        </div>
       </div>
+
       <div class="card featured">
         <span class="badge-featured">Recommandée</span>
         <h3>Formule CONFORT</h3>
@@ -116,14 +161,72 @@
           <li>Traitement anti-mousse écoresponsable</li>
           <li>Dépôt d'une plante fraîche de saison</li>
           <li>Allumage d'une veilleuse d'hommage</li>
-          <li>Rapport complet photo & vidéo HD</li>
+          <li>Rapport complet photo ET vidéo HD</li>
         </ul>
-        <a href="#contact" class="btn-card btn-card-featured">Demander cette formule</a>
+        <div class="links">
+          <a href="#contact" class="btn-card btn-card-featured">Passage Unique — 99 €</a>
+          <a href="#contact" class="btn-card btn-card-featured">Trimestriel (4/an) — 349 € / an</a>
+          <a href="#contact" class="btn-card btn-card-featured">Mensuel (12/an) — 82,50 € / mois</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ZONE D'INTERVENTION -->
+  <!-- OPTIONS -->
+  <section id="options" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2>Catalogue d'Options & Sur-Mesure</h2>
+        <p>Personnalisez votre commande avec des hommages fleuris ou des soins spécifiques.</p>
+      </div>
+      <div class="options-box">
+        <div class="opt-row">
+          <div>
+            <strong>Fleurissement de saison — Petite composition / bouquet</strong>
+            <p class="opt-sub">Sélectionnée auprès d'artisans fleuristes locaux.</p>
+          </div>
+          <span class="opt-price">39 €</span>
+        </div>
+        <div class="opt-row">
+          <div>
+            <strong>Fleurissement de saison — Moyenne composition / bouquet</strong>
+            <p class="opt-sub">Coupe généreuse de plantes ou grand bouquet de saison.</p>
+          </div>
+          <span class="opt-price">69 €</span>
+        </div>
+        <div class="opt-row">
+          <div>
+            <strong>Fleurissement Haute Résistance (Fleurs synthétiques)</strong>
+            <p class="opt-sub">Compositions extérieures durables face aux intempéries marines.</p>
+          </div>
+          <span class="opt-price">49 €</span>
+        </div>
+        <div class="opt-row">
+          <div>
+            <strong>Dépôt d'un message personnalisé le Jour J</strong>
+            <p class="opt-sub">Impression et dépôt d'une carte manuscrite à une date clé.</p>
+          </div>
+          <span class="opt-price">29 €</span>
+        </div>
+        <div class="opt-row">
+          <div>
+            <strong>Redorure & Réchampissage des lettres</strong>
+            <p class="opt-sub">Rénovation des gravures effacées par l'air salin.</p>
+          </div>
+          <span class="opt-price">Sur Devis</span>
+        </div>
+        <div class="opt-row">
+          <div>
+            <strong>Réfection des joints d'étanchéité</strong>
+            <p class="opt-sub">Remplacement des joints dégradés pour préserver la pierre.</p>
+          </div>
+          <span class="opt-price">Sur Devis</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTEUR & CARTE -->
   <section id="secteur" class="container section">
     <div class="section-header">
       <h2>Périmètre d'Intervention Géographique</h2>
@@ -131,7 +234,7 @@
     </div>
     <div class="map-layout">
       <div class="map-wrapper">
-        <div id="map" style="height: 380px; width: 100%;"></div>
+        <div id="map"></div>
         <div class="map-legend-bar">
           <span><strong style="color: #2E7D32;">● Zone Verte :</strong> Déplacement inclus (&lt; 20 min)</span>
           <span><strong style="color: #C5B382;">● Zone Or :</strong> Forfait +25 € (20 à 40 min)</span>
@@ -142,83 +245,27 @@
           <div class="zone-badge zone-inclus">Frais de déplacement inclus</div>
           <h3>📍 Zone Locale (&lt; 20 min de route)</h3>
           <p><strong>Côte de Nacre & Littoral :</strong> Hermanville-sur-Mer, Ouistreham, Colleville-Montgomery, Lion-sur-Mer, Luc-sur-Mer, Langrune-sur-Mer, Saint-Aubin-sur-Mer, Bernières-sur-Mer, Courseulles-sur-Mer.</p>
-          <p><strong>Agglomération Caennaise :</strong> Caen, Hérouville-Saint-Clair, Épron, Biéville-Beuville, Douvres-la-Délivrande...</p>
+          <p><strong>Agglomération Caennaise :</strong> Caen (tous cimetières), Hérouville-Saint-Clair, Épron, Biéville-Beuville, Douvres-la-Délivrande...</p>
         </div>
         <div class="zone-card">
           <div class="zone-badge zone-supp">+ 25 € par déplacement</div>
           <h3>🚗 Zone Élargie (20 à 40 min de route)</h3>
-          <p><strong>Côte Fleurie & Bessin :</strong> Cabourg, Dives-sur-Mer, Houlgate, Deauville, Trouville, Bayeux...</p>
+          <p><strong>Côte Fleurie & Bessin :</strong> Cabourg, Dives-sur-Mer, Houlgate, Villers-sur-Mer, Deauville, Trouville-sur-Mer, Bayeux...</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- LE BANDEAU CONTACT EXACTEMENT SOUS LA CARTE -->
+  <!-- BANDEAU CONTACT DIRECT (JUSTE SOUS LA CARTE) -->
   <section id="contact" class="section section-contact-banner">
     <div class="container">
       <div class="section-header">
         <span class="sub-badge">À votre écoute</span>
         <h2>Contactez Votre Artisan</h2>
-        <p>Une question sur un cimetière, un devis spécifique ou une demande urgente ? Réponse garantie sous 2h.</p>
+        <p>Une question sur un cimetière, un devis spécifique ou une demande urgente ? Réponse sous 2h.</p>
       </div>
       <div class="direct-contact-container">
         <a href="tel:0600000000" class="direct-contact-card">
           <div class="direct-icon">📞</div>
           <h3>Par Téléphone & SMS</h3>
-          <p class="direct-highlight">06 00 00 00 00</p>
-          <span class="direct-sub">Disponible 7j/7 • Appel direct</span>
-        </a>
-        <a href="mailto:contact@serenite-sepultures.fr" class="direct-contact-card">
-          <div class="direct-icon">✉️</div>
-          <h3>Par Courriel</h3>
-          <p class="direct-highlight">contact@serenite-sepultures.fr</p>
-          <span class="direct-sub">Devis gratuit sous 2h</span>
-        </a>
-        <div class="direct-contact-card">
-          <div class="direct-icon">📍</div>
-          <h3>Atelier & Intervention</h3>
-          <p class="direct-highlight">Hermanville-sur-Mer</p>
-          <span class="direct-sub">Calvados (14) & Littoral</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container footer-content">
-      <p>&copy; 2026 Sérénité Sépultures — Artisanat funéraire & soin du souvenir en Normandie.</p>
-    </div>
-  </footer>
-
-  <!-- SCRIPT LEAFLET -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const map = L.map('map').setView([49.2872, -0.3122], 10);
-      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 18,
-        attribution: '&copy; OpenStreetMap'
-      }).addTo(map);
-
-      L.circle([49.2872, -0.3122], {
-        color: '#C5B382',
-        fillColor: '#C5B382',
-        fillOpacity: 0.18,
-        radius: 35000
-      }).addTo(map).bindPopup("<strong>Zone Élargie (20 à 40 min)</strong>");
-
-      L.circle([49.2872, -0.3122], {
-        color: '#4E7250',
-        fillColor: '#8AA089',
-        fillOpacity: 0.35,
-        radius: 18000
-      }).addTo(map).bindPopup("<strong>Zone Locale (&lt; 20 min)</strong>");
-
-      L.marker([49.2872, -0.3122]).addTo(map).bindPopup("<strong>Sérénité Sépultures</strong><br>Hermanville-sur-Mer").openPopup();
-      
-      setTimeout(function(){ map.invalidateSize(); }, 400);
-    });
-  </script>
-</body>
-</html>
+          <p class="direct-highlight">06
