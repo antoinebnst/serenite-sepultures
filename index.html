@@ -288,4 +288,178 @@
   <section id="secteur" class="container section">
     <div class="section-header">
       <h2>Périmètre d'Intervention</h2>
-      <p>Épicentre des interventions : Hermanville-sur-Mer (14880) — Rayon maximum de 40 min de trajet</
+      <p>Épicentre des interventions : Hermanville-sur-Mer (14880) — Rayon maximum de 40 min de trajet</p>
+    </div>
+    
+    <div class="map-layout">
+      <!-- CARTE LEAFLET -->
+      <div class="map-wrapper">
+        <div id="map"></div>
+        <div class="map-legend-bar">
+          <span><strong style="color: #2E7D32;">● Zone Verte :</strong> Déplacement inclus (&lt; 20 min)</span>
+          <span><strong style="color: #C5B382;">● Zone Or :</strong> Forfait +25 € (20 à 40 min)</span>
+        </div>
+      </div>
+
+      <!-- DÉTAIL DES ZONES -->
+      <div class="zones-detail">
+        <div class="zone-card">
+          <div class="zone-badge zone-inclus">Frais de déplacement inclus</div>
+          <h3>📍 Zone Locale (&lt; 20 min de route)</h3>
+          <p><strong>Côte de Nacre & Littoral :</strong> Hermanville-sur-Mer, Ouistreham, Colleville-Montgomery, Lion-sur-Mer, Luc-sur-Mer, Langrune-sur-Mer, Saint-Aubin-sur-Mer, Bernières-sur-Mer, Courseulles-sur-Mer.</p>
+          <p><strong>Agglomération Caennaise :</strong> Caen (tous cimetières), Hérouville-Saint-Clair, Épron, Biéville-Beuville, Blainville-sur-Orne, Douvres-la-Délivrande, Saint-Contest...</p>
+        </div>
+
+        <div class="zone-card">
+          <div class="zone-badge zone-supp">+ 25 € par déplacement</div>
+          <h3>🚗 Zone Élargie (20 à 40 min de route)</h3>
+          <p><strong>Côte Fleurie :</strong> Cabourg, Dives-sur-Mer, Houlgate, Villers-sur-Mer, Deauville, Trouville-sur-Mer.</p>
+          <p><strong>Bessin & Plaine :</strong> Bayeux, Creully-sur-Seulles, Tilly-sur-Seulles, Mézidon...</p>
+          <p class="zone-note"><em>Au-delà de 40 min (Falaise, Lisieux...) : intervention uniquement sur devis spécifique.</em></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOUVELLE SECTION CONTACT & FORMULAIRE (NETLIFY FORMS INCLUS) -->
+  <section id="contact" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2>Contactez-nous & Devis Gratuit</h2>
+        <p>Une question, un devis de réfection ou une demande urgente ? Réponse garantie sous 2h.</p>
+      </div>
+
+      <div class="contact-grid">
+        
+        <!-- Coordonnées directes -->
+        <div class="contact-info">
+          <h3>Un échange humain & bienveillant</h3>
+          <p>
+            Chaque sépulture et chaque histoire de famille est unique. N'hésitez pas à me joindre directement pour me décrire vos attentes ou poser vos questions.
+          </p>
+          
+          <div class="contact-card-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <strong>Atelier & Siège</strong>
+              <p>Hermanville-sur-Mer (14880)</p>
+            </div>
+          </div>
+
+          <div class="contact-card-item">
+            <div class="contact-icon">📞</div>
+            <div>
+              <strong>Téléphone</strong>
+              <p><a href="tel:0600000000" class="contact-link">06 00 00 00 00</a> (Appels & SMS 7j/7)</p>
+            </div>
+          </div>
+
+          <div class="contact-card-item">
+            <div class="contact-icon">✉️</div>
+            <div>
+              <strong>Courriel direct</strong>
+              <p><a href="mailto:contact@serenite-sepultures.fr" class="contact-link">contact@serenite-sepultures.fr</a></p>
+            </div>
+          </div>
+
+          <div class="contact-notice">
+            🌿 <em>Tous les devis personnalisés (redorure, réfection de joints, intervention spécifique) sont entièrement gratuits et sans engagement.</em>
+          </div>
+        </div>
+
+        <!-- Formulaire Netlify -->
+        <div class="contact-form-wrap">
+          <form name="contact-serenite" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
+            <!-- Champ anti-spam masqué pour Netlify -->
+            <p class="hidden-field">
+              <label>Ne pas remplir si vous êtes humain : <input name="bot-field"></label>
+            </p>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nom">Nom & Prénom *</label>
+                <input type="text" id="nom" name="nom" required placeholder="Ex : Marie Dupont">
+              </div>
+              <div class="form-group">
+                <label for="telephone">Téléphone *</label>
+                <input type="tel" id="telephone" name="telephone" required placeholder="Ex : 06 12 34 56 78">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Adresse e-mail *</label>
+              <input type="email" id="email" name="email" required placeholder="Ex : marie.dupont@email.fr">
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="cimetiere">Cimetière ou Commune concernée</label>
+                <input type="text" id="cimetiere" name="cimetiere" placeholder="Ex : Cimetière d'Ouistreham">
+              </div>
+              <div class="form-group">
+                <label for="formule">Type de demande</label>
+                <select id="formule" name="formule">
+                  <option value="formule-essentiel">Formule Essentiel (79 €)</option>
+                  <option value="formule-confort">Formule Confort (99 €)</option>
+                  <option value="abonnement">Abonnement annuel (4 ou 12 passages)</option>
+                  <option value="devis-redorure">Devis Redorure / Rénovation</option>
+                  <option value="autre">Autre demande / Renseignement</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Votre message ou précisions *</label>
+              <textarea id="message" name="message" rows="4" required placeholder="Indiquez l'emplacement de la sépulture, le nom de famille ou vos souhaits particuliers..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">Envoyer ma demande</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-content">
+      <p>&copy; 2026 Sérénité Sépultures — Caen & Côte de Nacre (Calvados - 14).</p>
+      <p>Paiements sécurisés par carte bancaire via Stripe • Service artisanal écoresponsable.</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPT LEAFLET (CALIBRÉ 40 MIN) -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script>
+    const map = L.map('map').setView([49.2872, -0.3122], 10);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: '&copy; OpenStreetMap'
+    }).addTo(map);
+
+    // Zone 2 : 20 à 40 min de trajet (35 km)
+    L.circle([49.2872, -0.3122], {
+      color: '#C5B382',
+      fillColor: '#C5B382',
+      fillOpacity: 0.18,
+      radius: 35000
+    }).addTo(map).bindPopup("<strong>Zone Élargie (20 à 40 min)</strong><br>Forfait +25 € (Cabourg, Deauville, Bayeux)");
+
+    // Zone 1 : Moins de 20 min (18 km)
+    L.circle([49.2872, -0.3122], {
+      color: '#4E7250',
+      fillColor: '#8AA089',
+      fillOpacity: 0.35,
+      radius: 18000
+    }).addTo(map).bindPopup("<strong>Zone Locale (&lt; 20 min)</strong><br>Déplacement inclus (Caen & Côte de Nacre)");
+
+    // Marqueur Épicentre
+    L.marker([49.2872, -0.3122]).addTo(map)
+      .bindPopup("<strong>Sérénité Sépultures</strong><br>Hermanville-sur-Mer (Épicentre)")
+      .openPopup();
+  </script>
+
+</body>
+</html>

@@ -93,10 +93,34 @@ body {
   font-size: 0.88rem;
   font-weight: 500;
   transition: color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
 }
 
 .nav a:hover {
   color: var(--gold);
+}
+
+/* BOUTON AVEC PICTO DANS LE MENU DU HAUT */
+.nav-contact-btn {
+  background: rgba(197, 179, 130, 0.15);
+  color: var(--gold) !important;
+  padding: 0.35rem 0.75rem;
+  border-radius: 4px;
+  border: 1px solid rgba(197, 179, 130, 0.4);
+  transition: all 0.2s ease;
+}
+
+.nav-contact-btn:hover {
+  background: var(--gold);
+  color: var(--blue) !important;
+}
+
+.nav-icon {
+  width: 15px;
+  height: 15px;
+  stroke: currentColor;
 }
 
 .btn-client {
@@ -546,7 +570,7 @@ body {
   margin-left: 1.5rem;
 }
 
-/* CARTE & ZONES D'INTERVENTION */
+/* CARTE & ZONES D'INTERVENTION GÉOGRAPHIQUE */
 .map-layout {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -638,7 +662,12 @@ body {
   color: var(--text-muted) !important;
 }
 
-/* SECTION CONTACT & FORMULAIRE */
+/* SECTION BANDEAU DE CONTACT */
+.section-contact-banner {
+  background-color: #F4F6F4;
+  border-top: 1px solid var(--border);
+}
+
 .contact-grid {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
