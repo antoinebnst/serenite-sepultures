@@ -14,10 +14,28 @@
   
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
   <link rel="stylesheet" href="style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "name": "Sérénité Sépultures",
+    "description": "Entretien manuel écologique et fleurissement de sépultures à Caen et sur la Côte de Nacre.",
+    "areaServed": ["Caen", "Hermanville-sur-Mer", "Ouistreham", "Courseulles-sur-Mer", "Cabourg", "Bayeux"],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Hermanville-sur-Mer",
+      "postalCode": "14880",
+      "addressRegion": "Calvados",
+      "addressCountry": "FR"
+    },
+    "priceRange": "79€ - 349€"
+  }
+  </script>
 </head>
 <body>
 
-  <!-- BANDEAU PROMO -->
+  <!-- BANDEAU PROMOTIONNEL -->
   <div class="top-banner">
     🌿 <strong>Offre de lancement :</strong> -10% sur toute première commande avec le code <span>SERENITE10</span>
   </div>
@@ -44,6 +62,7 @@
           </svg>
           <span>Contact</span>
         </a>
+        <a href="https://billing.stripe.com/p/login/VOTRE_PORTAIL_STRIPE" class="btn-client" target="_blank" rel="noopener">Mon Compte</a>
       </nav>
     </div>
   </header>
@@ -78,7 +97,10 @@
           Habitant attaché à notre littoral normand et fondateur de Sérénité Sépultures, j'ai créé ce service à partir d'un constat humain et sincère.
         </p>
         <p>
-          Avec l'éloignement géographique et les contraintes de mobilité, beaucoup ne peuvent plus fleurir ou entretenir la sépulture de leurs proches aussi souvent qu'ils le voudraient. Mon rôle est d'être votre relais de confiance sur place.
+          Avec l'éloignement géographique des familles et les contraintes de mobilité qui touchent nos aînés, beaucoup souffrent de ne plus pouvoir entretenir et fleurir la sépulture de leurs proches aussi régulièrement qu'ils le voudraient.
+        </p>
+        <p>
+          Mon rôle est d'être votre relais de confiance sur place : des yeux attentifs et des mains bienveillantes pour honorer le repos de ceux qui vous sont chers, avec la discrétion et le respect qu'exige chaque lieu de mémoire.
         </p>
         <div class="about-signature">
           <strong>Antoine — Votre artisan de confiance</strong>
@@ -113,12 +135,12 @@
         <div class="quality-card">
           <div class="quality-icon">🌿</div>
           <h3>Nettoyage Doux Écologique</h3>
-          <p>Jamais de nettoyeur haute pression. Brossage manuel à l'eau, savon neutre et anti-mousse biodégradable.</p>
+          <p>Jamais de nettoyeur haute pression qui dégrade la pierre. Brossage manuel à l'eau, savon neutre et anti-mousse biodégradable.</p>
         </div>
         <div class="quality-card">
           <div class="quality-icon">📸</div>
           <h3>Bilan Visuel sous 2h</h3>
-          <p>Dès la fin de l'intervention, réception par message ou e-mail d'un compte-rendu photo et vidéo HD complet.</p>
+          <p>Dès la fin de l'intervention, réception par message ou e-mail d'un compte-rendu photo et vidéo complet en haute définition.</p>
         </div>
         <div class="quality-card">
           <div class="quality-icon">🤝</div>
@@ -128,13 +150,13 @@
         <div class="quality-card">
           <div class="quality-icon">🌸</div>
           <h3>Fleurs Locales de Saison</h3>
-          <p>Approvisionnement auprès d'artisans fleuristes locaux (Caen, Ouistreham, Cabourg) pour privilégier la fraîcheur.</p>
+          <p>Approvisionnement auprès d'artisans fleuristes locaux (Caen, Ouistreham, Cabourg) pour privilégier la fraîcheur et le circuit court.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION COMMANDE DIRECTE AVEC CALCUL AUTOMATIQUE DU DÉPLACEMENT -->
+  <!-- SECTION COMMANDE DIRECTE & FRAIS AUTOMATIQUES -->
   <section id="commander" class="container section">
     <div class="section-header">
       <span class="sub-badge">Simple & Transparent</span>
@@ -213,19 +235,18 @@
         </div>
       </div>
 
-      <!-- Étape 3 : Destination & Calcul Automatique du Déplacement -->
+      <!-- Étape 3 : Lieu & Déplacement automatique -->
       <div class="order-block summary-block">
         <div class="summary-details">
           <h3>3. Lieu d'intervention & Coordonnées</h3>
           
-          <!-- Menu déroulant Commune avec frais automatisés -->
           <div class="input-wrap">
             <label for="client-commune">Commune du cimetière *</label>
-            <select id="client-commune" required onchange="onCommuneChange()">
+            <select id="client-commune" required onchange="calculateTotal()">
               <option value="" disabled selected>— Sélectionnez la commune —</option>
               
               <!-- Zone Locale (0 €) -->
-              <optgroup label="Zone Locale (Frais de déplacement inclus - 0 €)">
+              <optgroup label="Zone Locale (Déplacement inclus - 0 €)">
                 <option value="Hermanville-sur-Mer" data-fee="0">Hermanville-sur-Mer</option>
                 <option value="Ouistreham" data-fee="0">Ouistreham</option>
                 <option value="Colleville-Montgomery" data-fee="0">Colleville-Montgomery</option>
@@ -258,7 +279,6 @@
                 <option value="Mézidon Vallée d'Auge" data-fee="25">Mézidon Vallée d'Auge</option>
               </optgroup>
 
-              <!-- Cas particuliers -->
               <optgroup label="Autre secteur">
                 <option value="autre_locale" data-fee="0">Autre commune à moins de 20 min d'Hermanville (0 €)</option>
                 <option value="autre_elargie" data-fee="25">Autre commune entre 20 et 40 min d'Hermanville (+25 €)</option>
@@ -392,7 +412,6 @@
   <!-- SCRIPT INTERACTIF CARTE & PANIER -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script>
-    // Initialisation Carte
     document.addEventListener("DOMContentLoaded", function() {
       const mapContainer = document.getElementById('map');
       if (mapContainer) {
@@ -404,19 +423,15 @@
         L.marker([49.2872, -0.3122]).addTo(map).bindPopup("<strong>Sérénité Sépultures</strong><br>Hermanville-sur-Mer").openPopup();
 
         setTimeout(() => map.invalidateSize(), 500);
+        window.addEventListener('resize', () => map.invalidateSize());
       }
       calculateTotal();
     });
 
-    // Écouteur sur le changement de destination
-    function onCommuneChange() {
-      calculateTotal();
-    }
-
-    // Calcul dynamique du Panier et des Frais de déplacement
     function calculateTotal() {
       let total = 0;
       const cartList = document.getElementById('cart-items');
+      if (!cartList) return;
       cartList.innerHTML = '';
 
       // 1. Formule de base
@@ -443,7 +458,7 @@
         cartList.appendChild(row);
       });
 
-      // 3. Frais de déplacement automatiques selon la commune choisie
+      // 3. Frais de déplacement automatiques
       const selectCommune = document.getElementById('client-commune');
       if (selectCommune && selectCommune.selectedIndex > 0) {
         const selectedOption = selectCommune.options[selectCommune.selectedIndex];
@@ -468,7 +483,6 @@
       return total;
     }
 
-    // Envoi de la commande par e-mail
     function handleOrderSubmission(e) {
       e.preventDefault();
       const communeSelect = document.getElementById('client-commune');
