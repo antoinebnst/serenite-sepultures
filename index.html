@@ -219,7 +219,8 @@
       <p>À l'acte ou en formule 4 saisons : le montant se calcule automatiquement en direct.</p>
     </div>
 
-    <form onsubmit="handleOrderSubmission(event)" class="order-form-container">
+    <!-- FORMULAIRE AVEC ENVOI AUTOMATISÉ SANS BOÎTE MAIL -->
+    <form id="order-form" action="https://formspree.io/f/mqazknyz" method="POST" onsubmit="handleOrderSubmission(event)" class="order-form-container">
       
       <!-- Étape 1 : Formule ou Pack 4 passages -->
       <div class="order-block">
@@ -227,7 +228,7 @@
         <div class="plan-selection-grid">
           
           <label class="plan-select-card">
-            <input type="radio" name="formule" value="Essentiel — Passage Unique (79 €)" data-price="79" data-ispack="false" checked onchange="onPlanChange()">
+            <input type="radio" name="Formule" value="Essentiel — Passage Unique (79 €)" data-price="79" data-ispack="false" checked onchange="onPlanChange()">
             <div class="plan-card-body">
               <span class="plan-card-name">Essentiel • Passage Unique</span>
               <strong class="plan-card-price">79 €</strong>
@@ -236,7 +237,7 @@
           </label>
 
           <label class="plan-select-card">
-            <input type="radio" name="formule" value="Confort — Passage Unique (99 €)" data-price="99" data-ispack="false" onchange="onPlanChange()">
+            <input type="radio" name="Formule" value="Confort — Passage Unique (99 €)" data-price="99" data-ispack="false" onchange="onPlanChange()">
             <div class="plan-card-body">
               <span class="plan-card-name">Confort • Passage Unique</span>
               <strong class="plan-card-price">99 €</strong>
@@ -245,7 +246,7 @@
           </label>
 
           <label class="plan-select-card">
-            <input type="radio" name="formule" value="Pack 4 Saisons — Essentiel (279 €)" data-price="279" data-ispack="true" onchange="onPlanChange()">
+            <input type="radio" name="Formule" value="Pack 4 Saisons — Essentiel (279 €)" data-price="279" data-ispack="true" onchange="onPlanChange()">
             <div class="plan-card-body">
               <span class="plan-card-tag discount-tag">Économie 37 €</span>
               <span class="plan-card-name">Pack 4 Saisons • Essentiel</span>
@@ -255,7 +256,7 @@
           </label>
 
           <label class="plan-select-card featured-plan">
-            <input type="radio" name="formule" value="Pack 4 Saisons — Confort (349 €)" data-price="349" data-ispack="true" onchange="onPlanChange()">
+            <input type="radio" name="Formule" value="Pack 4 Saisons — Confort (349 €)" data-price="349" data-ispack="true" onchange="onPlanChange()">
             <div class="plan-card-body">
               <span class="plan-card-tag">Recommandé • Éco 47 €</span>
               <span class="plan-card-name">Pack 4 Saisons • Confort</span>
@@ -273,7 +274,7 @@
         <div class="options-checklist">
           
           <label class="option-check-item">
-            <input type="checkbox" name="opt" value="Petite composition de saison (+39 €)" data-price="39" onchange="calculateTotal()">
+            <input type="checkbox" name="Options" value="Petite composition de saison (+39 €)" data-price="39" onchange="calculateTotal()">
             <div class="option-check-info">
               <strong>Fleurissement frais — Petite composition / bouquet</strong>
               <span>Sélection chez nos fleuristes partenaires locaux</span>
@@ -282,7 +283,7 @@
           </label>
 
           <label class="option-check-item">
-            <input type="checkbox" name="opt" value="Moyenne composition de saison (+69 €)" data-price="69" onchange="calculateTotal()">
+            <input type="checkbox" name="Options" value="Moyenne composition de saison (+69 €)" data-price="69" onchange="calculateTotal()">
             <div class="option-check-info">
               <strong>Fleurissement frais — Moyenne composition / bouquet</strong>
               <span>Coupe généreuse de plantes ou grand bouquet de saison</span>
@@ -291,7 +292,7 @@
           </label>
 
           <label class="option-check-item">
-            <input type="checkbox" name="opt" value="Fleurs synthétiques haute résistance (+49 €)" data-price="49" onchange="calculateTotal()">
+            <input type="checkbox" name="Options" value="Fleurs synthétiques haute résistance (+49 €)" data-price="49" onchange="calculateTotal()">
             <div class="option-check-info">
               <strong>Fleurissement Haute Résistance (synthétique)</strong>
               <span>Composition résistante au vent marin et aux intempéries</span>
@@ -300,7 +301,7 @@
           </label>
 
           <label class="option-check-item">
-            <input type="checkbox" name="opt" value="Message personnalisé Jour J (+29 €)" data-price="29" onchange="calculateTotal()">
+            <input type="checkbox" name="Options" value="Message personnalisé Jour J (+29 €)" data-price="29" onchange="calculateTotal()">
             <div class="option-check-info">
               <strong>Dépôt d'un message manuscrit le Jour J</strong>
               <span>Impression et dépôt d'une carte d'hommage à date précise</span>
@@ -318,7 +319,7 @@
           
           <div class="input-wrap">
             <label for="client-commune">Commune du cimetière *</label>
-            <select id="client-commune" required onchange="calculateTotal()">
+            <select id="client-commune" name="Commune" required onchange="calculateTotal()">
               <option value="" disabled selected>— Sélectionnez la commune —</option>
               
               <optgroup label="Zone Locale (Déplacement inclus - 0 €)">
@@ -363,23 +364,23 @@
 
           <div class="input-wrap">
             <label for="client-cimetiere-nom">Nom du cimetière & concession *</label>
-            <input type="text" id="client-cimetiere-nom" required placeholder="Ex : Cimetière communal, Concession Famille Martin">
+            <input type="text" id="client-cimetiere-nom" name="Cimetiere_Concession" required placeholder="Ex : Cimetière communal, Concession Famille Martin">
           </div>
 
           <div class="form-grid-2">
             <div class="input-wrap">
               <label for="client-nom">Votre Nom & Prénom *</label>
-              <input type="text" id="client-nom" required placeholder="Ex : Marie Dupont">
+              <input type="text" id="client-nom" name="Nom_Client" required placeholder="Ex : Marie Dupont">
             </div>
             <div class="input-wrap">
               <label for="client-tel">Téléphone *</label>
-              <input type="tel" id="client-tel" required placeholder="Ex : 06 12 34 56 78">
+              <input type="tel" id="client-tel" name="Telephone" required placeholder="Ex : 06 12 34 56 78">
             </div>
           </div>
 
           <div class="input-wrap">
             <label for="client-details">Précisions éventuelles (périodes souhaitées, état de la tombe...)</label>
-            <textarea id="client-details" rows="3" placeholder="Indiquez ici toute information utile pour l'organisation..."></textarea>
+            <textarea id="client-details" name="Details_Message" rows="3" placeholder="Indiquez ici toute information utile pour l'organisation..."></textarea>
           </div>
         </div>
 
@@ -398,6 +399,11 @@
             <p id="promo-msg" class="promo-feedback"></p>
           </div>
 
+          <!-- Champs masqués transmis automatiquement à la boîte mail -->
+          <input type="hidden" name="Frais_Deplacement" id="hidden-frais" value="0 €">
+          <input type="hidden" name="Remise_Promo" id="hidden-promo" value="Aucune">
+          <input type="hidden" name="Total_TTC" id="hidden-total" value="79 €">
+
           <div class="cart-total-line">
             <span>Total estimé :</span>
             <strong id="cart-total-price">79 €</strong>
@@ -405,7 +411,7 @@
           <button type="submit" class="btn-validate-order">
             Transmettre ma commande à Antoine
           </button>
-          <p class="cart-notice">🌿 Aucun paiement immédiat requis. Antoine vous confirme la date et les détails sous 2h.</p>
+          <p class="cart-notice">🌿 Aucun paiement immédiat requis. Antoine vous confirme la date et les détails sous 48h.</p>
         </div>
       </div>
 
@@ -514,7 +520,7 @@
     });
 
     function onPlanChange() {
-      const selectedPlan = document.querySelector('input[name="formule"]:checked');
+      const selectedPlan = document.querySelector('input[name="Formule"]:checked');
       const isPack = selectedPlan && selectedPlan.getAttribute('data-ispack') === 'true';
       const msg = document.getElementById('promo-msg');
 
@@ -533,7 +539,7 @@
       const msg = document.getElementById('promo-msg');
       const code = input.value.trim().toUpperCase();
 
-      const selectedPlan = document.querySelector('input[name="formule"]:checked');
+      const selectedPlan = document.querySelector('input[name="Formule"]:checked');
       const isPack = selectedPlan && selectedPlan.getAttribute('data-ispack') === 'true';
 
       if (!code) {
@@ -570,7 +576,7 @@
       cartList.innerHTML = '';
 
       // 1. Formule
-      const selectedPlan = document.querySelector('input[name="formule"]:checked');
+      const selectedPlan = document.querySelector('input[name="Formule"]:checked');
       let isPack = false;
       if (selectedPlan) {
         const planPrice = parseInt(selectedPlan.getAttribute('data-price'), 10);
@@ -585,7 +591,7 @@
       }
 
       // 2. Options d'hommage
-      const checkedOptions = document.querySelectorAll('input[name="opt"]:checked');
+      const checkedOptions = document.querySelectorAll('input[name="Options"]:checked');
       checkedOptions.forEach(opt => {
         const optPrice = parseInt(opt.getAttribute('data-price'), 10);
         subtotal += optPrice;
@@ -598,6 +604,7 @@
 
       // 3. Frais de déplacement
       const selectCommune = document.getElementById('client-commune');
+      let currentFeeText = "Inclus (0 €)";
       if (selectCommune && selectCommune.selectedIndex > 0) {
         const selectedOption = selectCommune.options[selectCommune.selectedIndex];
         const fee = parseInt(selectedOption.getAttribute('data-fee') || "0", 10);
@@ -607,17 +614,21 @@
         row.className = 'cart-item-row';
 
         if (selectedOption.value === "hors_zone") {
+          currentFeeText = "Sur devis spécifique";
           row.innerHTML = `<span>Déplacement : ${communeName}</span><strong style="color: #C5B382;">Sur Devis</strong>`;
         } else if (fee > 0) {
           subtotal += fee;
+          currentFeeText = "+ " + fee + " €";
           row.innerHTML = `<span>Déplacement : ${communeName}</span><strong>+ ${fee} €</strong>`;
         } else {
+          currentFeeText = "Inclus (0 €)";
           row.innerHTML = `<span>Déplacement : ${communeName}</span><strong style="color: #2E7D32;">Inclus (0 €)</strong>`;
         }
         cartList.appendChild(row);
       }
+      document.getElementById('hidden-frais').value = currentFeeText;
 
-      // 4. Déduction Code PACK10 (10% sur le pack)
+      // 4. Déduction Code PACK10
       let totalFinal = subtotal;
       if (appliedPromoCode === "PACK10" && isPack && packPrice > 0) {
         const remise = Math.round(packPrice * 0.10);
@@ -627,45 +638,56 @@
         promoRow.className = 'cart-item-row promo-discount-row';
         promoRow.innerHTML = `<span>Remise fidélité Pack 4 Saisons (-10%)</span><strong style="color: #2E7D32;">- ${remise} €</strong>`;
         cartList.appendChild(promoRow);
+        document.getElementById('hidden-promo').value = "PACK10 (-" + remise + " €)";
+      } else {
+        document.getElementById('hidden-promo').value = "Aucune";
       }
 
       document.getElementById('cart-total-price').innerText = totalFinal + " €";
+      document.getElementById('hidden-total').value = totalFinal + " €";
       return totalFinal;
     }
 
-    function handleOrderSubmission(e) {
+    // ENVOI TRANSPARENT SANS OUVERTURE DE MESSAGERIE
+    async function handleOrderSubmission(e) {
       e.preventDefault();
-      const communeSelect = document.getElementById('client-commune');
-      const communeChoisie = communeSelect.options[communeSelect.selectedIndex].text;
-      const cimetiereNom = document.getElementById('client-cimetiere-nom').value;
-      const nom = document.getElementById('client-nom').value;
-      const tel = document.getElementById('client-tel').value;
-      const details = document.getElementById('client-details').value;
+      const form = document.getElementById('order-form');
+      const btn = form.querySelector('.btn-validate-order');
 
-      const plan = document.querySelector('input[name="formule"]:checked').value;
-      const options = Array.from(document.querySelectorAll('input[name="opt"]:checked')).map(o => o.value);
-      const total = document.getElementById('cart-total-price').innerText;
+      btn.innerText = "Transmission en cours...";
+      btn.disabled = true;
 
-      const sujet = encodeURIComponent("Nouvelle commande Sérénité Sépultures - " + nom + " (" + total + ")");
-      const corps = encodeURIComponent(
-        "Bonjour Antoine,\n\n" +
-        "Voici une nouvelle commande enregistrée sur le site :\n\n" +
-        "--- CLIENT ---\n" +
-        "- Nom : " + nom + "\n" +
-        "- Téléphone : " + tel + "\n" +
-        "- Commune d'intervention : " + communeChoisie + "\n" +
-        "- Précisions concession / cimetière : " + cimetiereNom + "\n\n" +
-        "--- FORMULE CHOISIE ---\n" +
-        "- Prestation : " + plan + "\n" +
-        "- Options d'hommage : " + (options.length > 0 ? options.join(", ") : "Aucune") + "\n" +
-        "- Code promo Pack appliqué : " + (appliedPromoCode ? appliedPromoCode + " (-10% sur le pack)" : "Aucun") + "\n" +
-        "- TOTAL ESTIMÉ : " + total + "\n\n" +
-        "--- REMARQUES / DÉTAILS ---\n" +
-        (details ? details : "Aucune") + "\n\n" +
-        "---\nEnvoyé depuis serenite-sepultures.fr"
-      );
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
 
-      window.location.href = "mailto:antoine.bnst@gmail.com?subject=" + sujet + "&body=" + corps;
+        if (response.ok) {
+          form.innerHTML = `
+            <div style="text-align: center; padding: 3.5rem 1.5rem; background: #FFFFFF; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 4px 15px rgba(0,0,0,0.04);">
+              <div style="font-size: 3.2rem; margin-bottom: 1rem;">🌿</div>
+              <h3 style="font-family: 'Cinzel', serif; color: var(--blue); font-size: 1.8rem; margin-bottom: 0.8rem;">Demande bien transmise !</h3>
+              <p style="font-size: 1.05rem; color: var(--text-dark); max-width: 600px; margin: 0 auto 1.5rem; line-height: 1.6;">
+                Merci pour votre confiance. Antoine étudie la disponibilité de la sépulture et vous recontacte sous <strong>48h</strong> avec votre confirmation et votre lien de paiement sécurisé.
+              </p>
+              <div style="display: inline-block; background: #F4F6F4; padding: 0.8rem 1.4rem; border-radius: 8px; font-size: 0.9rem; color: var(--blue);">
+                📞 Besoin d'échanger directement ? <strong>06 59 72 22 40</strong>
+              </div>
+            </div>
+          `;
+          window.location.hash = "commander";
+        } else {
+          btn.innerText = "Transmettre ma commande à Antoine";
+          btn.disabled = false;
+          alert("Une erreur est survenue lors de l'envoi. Vous pouvez contacter Antoine directement au 06 59 72 22 40.");
+        }
+      } catch (err) {
+        btn.innerText = "Transmettre ma commande à Antoine";
+        btn.disabled = false;
+        alert("Impossible d'envoyer la demande. Merci d'appeler directement le 06 59 72 22 40.");
+      }
     }
   </script>
 </body>
