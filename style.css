@@ -375,34 +375,19 @@ body {
   color: var(--text-muted);
 }
 
-/* ENCART PROCESSUS AVEC PATTERN GÉOMÉTRIQUE MINÉRAL */
+/* ENCART PROCESSUS AVEC MOTIF (PATTERN) VISIBLE */
 .section-process {
-  background-color: #F4F6F4;
+  background-color: #F1F4F1;
   background-image: 
-    radial-gradient(rgba(197, 179, 130, 0.18) 1px, transparent 1px),
-    radial-gradient(rgba(138, 160, 137, 0.14) 1px, transparent 1px);
-  background-size: 28px 28px;
-  background-position: 0 0, 14px 14px;
-  border-top: 1px solid rgba(197, 179, 130, 0.35);
-  border-bottom: 1px solid rgba(197, 179, 130, 0.35);
+    linear-gradient(45deg, rgba(138, 160, 137, 0.15) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(138, 160, 137, 0.15) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(138, 160, 137, 0.15) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(138, 160, 137, 0.15) 75%);
+  background-size: 36px 36px;
+  background-position: 0 0, 0 18px, 18px -18px, -18px 0px;
+  border-top: 1px solid rgba(197, 179, 130, 0.4);
+  border-bottom: 1px solid rgba(197, 179, 130, 0.4);
   padding: 4.5rem 0;
-  position: relative;
-}
-
-.section-process::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(244, 246, 244, 0.3) 50%, rgba(255, 255, 255, 0.5) 100%);
-  pointer-events: none;
-}
-
-.section-process .container {
-  position: relative;
-  z-index: 1;
 }
 
 .process-steps-grid {
@@ -413,23 +398,24 @@ body {
 }
 
 .step-card {
-  background: var(--white);
-  border: 1px solid var(--border);
+  background: #FFFFFF;
+  border: 1px solid rgba(138, 160, 137, 0.35);
   border-radius: 12px;
   padding: 1.6rem 1.1rem;
   flex: 1;
   text-align: center;
   position: relative;
-  box-shadow: 0 6px 18px rgba(30, 42, 56, 0.05);
+  box-shadow: 0 8px 24px rgba(30, 42, 56, 0.07);
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .step-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   border-color: var(--green);
+  box-shadow: 0 12px 28px rgba(30, 42, 56, 0.12);
 }
 
 .step-num {
@@ -447,6 +433,7 @@ body {
   align-items: center;
   justify-content: center;
   border: 2px solid var(--white);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 .step-icon {
