@@ -256,7 +256,7 @@ body {
   margin-bottom: 0.5rem;
 }
 
-/* SECTION QUI SUIS-JE */
+/* SECTION QUI SUIS-JE & GESTION PHOTO */
 .about-grid {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
@@ -304,7 +304,22 @@ body {
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.profile-img-wrap {
+  width: 100%;
+  height: 250px;
+  background-color: #E2E8F0;
+  overflow: hidden;
+}
+
+.profile-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .profile-details {
@@ -375,19 +390,17 @@ body {
   color: var(--text-muted);
 }
 
-/* ENCART PROCESSUS AVEC MOTIF (PATTERN) VISIBLE */
+/* ENCART PROCESSUS : PATTERN FORTEMENT RENFORCÉ */
 .section-process {
-  background-color: #F1F4F1;
+  background-color: #E6EDE6;
   background-image: 
-    linear-gradient(45deg, rgba(138, 160, 137, 0.15) 25%, transparent 25%),
-    linear-gradient(-45deg, rgba(138, 160, 137, 0.15) 25%, transparent 25%),
-    linear-gradient(45deg, transparent 75%, rgba(138, 160, 137, 0.15) 75%),
-    linear-gradient(-45deg, transparent 75%, rgba(138, 160, 137, 0.15) 75%);
-  background-size: 36px 36px;
-  background-position: 0 0, 0 18px, 18px -18px, -18px 0px;
-  border-top: 1px solid rgba(197, 179, 130, 0.4);
-  border-bottom: 1px solid rgba(197, 179, 130, 0.4);
-  padding: 4.5rem 0;
+    linear-gradient(to right, rgba(30, 42, 56, 0.18) 1.5px, transparent 1.5px),
+    linear-gradient(to bottom, rgba(30, 42, 56, 0.18) 1.5px, transparent 1.5px),
+    linear-gradient(45deg, rgba(197, 179, 130, 0.12) 25%, transparent 25%, transparent 75%, rgba(197, 179, 130, 0.12) 75%);
+  background-size: 28px 28px, 28px 28px, 56px 56px;
+  border-top: 3px solid var(--gold);
+  border-bottom: 3px solid var(--gold);
+  padding: 4.8rem 0;
 }
 
 .process-steps-grid {
@@ -399,13 +412,13 @@ body {
 
 .step-card {
   background: #FFFFFF;
-  border: 1px solid rgba(138, 160, 137, 0.35);
+  border: 1.5px solid rgba(30, 42, 56, 0.2);
   border-radius: 12px;
   padding: 1.6rem 1.1rem;
   flex: 1;
   text-align: center;
   position: relative;
-  box-shadow: 0 8px 24px rgba(30, 42, 56, 0.07);
+  box-shadow: 0 8px 25px rgba(30, 42, 56, 0.12);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -415,7 +428,7 @@ body {
 .step-card:hover {
   transform: translateY(-4px);
   border-color: var(--green);
-  box-shadow: 0 12px 28px rgba(30, 42, 56, 0.12);
+  box-shadow: 0 12px 30px rgba(30, 42, 56, 0.18);
 }
 
 .step-num {
@@ -433,7 +446,7 @@ body {
   align-items: center;
   justify-content: center;
   border: 2px solid var(--white);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
 }
 
 .step-icon {
@@ -458,10 +471,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--gold);
-  font-size: 1.4rem;
-  font-weight: 700;
+  color: var(--blue);
+  font-size: 1.5rem;
+  font-weight: 800;
   user-select: none;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
 }
 
 /* CONFIGURATEUR DE COMMANDE */
