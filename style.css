@@ -597,3 +597,59 @@ body {
 
 .map-legend-bar {
   background: #ECEFF1;
+/* BANDEAU CONTACT DIRECT SOUS LA CARTE */
+.section-contact-banner {
+  background-color: #F4F6F4;
+  border-top: 1px solid var(--border);
+}
+
+.direct-contact-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.direct-contact-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  color: var(--text-dark);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.direct-contact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.direct-icon {
+  font-size: 2.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.direct-contact-card h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.15rem;
+  color: var(--blue);
+  margin-bottom: 0.5rem;
+}
+
+.direct-highlight {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--green);
+  margin-bottom: 0.4rem;
+}
+
+.direct-sub {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
