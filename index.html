@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   
-  <!-- Feuille de style Leaflet (Carte) -->
+  <!-- Feuille de style Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
   <link rel="stylesheet" href="style.css">
 
@@ -48,7 +48,7 @@
     🌿 <strong>Offre de lancement :</strong> -10% sur toute première commande avec le code <span>SERENITE10</span>
   </div>
 
-  <!-- NAVIGATION COMPLÈTE -->
+  <!-- NAVIGATION -->
   <header class="header">
     <div class="container nav-box">
       <a href="#" class="logo-link">
@@ -60,7 +60,7 @@
         <a href="#formules">Formules</a>
         <a href="#options">Options</a>
         <a href="#secteur">Secteur</a>
-        <!-- Picto Contact -->
+        <!-- Picto & Bouton Contact -->
         <a href="#contact" class="nav-contact-btn" title="Nous contacter">
           <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect width="20" height="16" x="2" y="4" rx="2"/>
@@ -68,7 +68,7 @@
           </svg>
           <span>Contact</span>
         </a>
-        <!-- Bouton Mon Compte / Espace Client -->
+        <!-- Bouton Mon Compte -->
         <a href="https://billing.stripe.com/p/login/VOTRE_PORTAIL_STRIPE" class="btn-client" target="_blank" rel="noopener">Mon Compte</a>
       </nav>
     </div>
@@ -87,7 +87,7 @@
       </p>
       <div class="hero-actions">
         <a href="#formules" class="btn-main">Commander un entretien</a>
-        <a href="#contact" class="btn-secondary">Nous Contacter</a>
+        <a href="#contact" class="btn-secondary">Demander un devis</a>
       </div>
       <div class="trust-bar">
         <div class="trust-item">📸 Rapport Photo/Vidéo HD sous 2h</div>
@@ -153,7 +153,7 @@
         <div class="quality-card">
           <div class="quality-icon">📸</div>
           <h3>Bilan Visuel sous 2h</h3>
-          <p>Dès la fin de l'intervention, réception par message ou sur votre espace client d'un compte-rendu photo et vidéo complet en haute définition.</p>
+          <p>Dès la fin de l'intervention, réception par SMS ou e-mail d'un compte-rendu photo et vidéo complet en haute définition.</p>
         </div>
         <div class="quality-card">
           <div class="quality-icon">🤝</div>
@@ -307,8 +307,8 @@
     </div>
   </section>
 
-  <!-- LE BANDEAU CONTACT SOUS LA CARTE -->
-  <section id="contact" class="section section-contact-banner">
+  <!-- NOUVEAU BANDEAU CONTACT HAUT DE GAMME AVEC SAISIE DE MESSAGE -->
+  <section id="contact" class="section section-contact">
     <div class="container">
       <div class="section-header">
         <span class="sub-badge">À votre écoute</span>
@@ -316,30 +316,87 @@
         <p>Une question sur un cimetière, un devis spécifique ou une intervention urgente ? Échangeons directement.</p>
       </div>
 
-      <div class="direct-contact-container">
-        <!-- Téléphone -->
-        <a href="tel:0600000000" class="direct-contact-card">
-          <div class="direct-icon">📞</div>
-          <h3>Par Téléphone & SMS</h3>
-          <p class="direct-highlight">06 00 00 00 00</p>
-          <span class="direct-sub">Disponible 7j/7 • Appel ou SMS direct</span>
-        </a>
+      <div class="contact-card-master">
+        
+        <!-- Colonne 1 : Coordonnées directes cliquables -->
+        <div class="contact-left-col">
+          <div class="contact-intro">
+            <h3>Une écoute directe & humaine</h3>
+            <p>Pas d'intermédiaire ni de standard impersonnel : vous êtes en relation directe avec votre artisan.</p>
+          </div>
 
-        <!-- Courriel -->
-        <a href="mailto:contact@serenite-sepultures.fr" class="direct-contact-card">
-          <div class="direct-icon">✉️</div>
-          <h3>Par Courriel</h3>
-          <p class="direct-highlight">contact@serenite-sepultures.fr</p>
-          <span class="direct-sub">Devis gratuit garanti sous 2h</span>
-        </a>
+          <div class="contact-buttons-stack">
+            <!-- Téléphone cliquable -->
+            <a href="tel:0659722240" class="contact-action-item">
+              <div class="action-icon-circle">📞</div>
+              <div class="action-text">
+                <span class="action-label">Téléphone & SMS direct</span>
+                <strong class="action-val">06 59 72 22 40</strong>
+                <span class="action-sub">Disponible 7j/7 pour vous renseigner</span>
+              </div>
+            </a>
 
-        <!-- Localisation -->
-        <div class="direct-contact-card">
-          <div class="direct-icon">📍</div>
-          <h3>Atelier & Intervention</h3>
-          <p class="direct-highlight">Hermanville-sur-Mer (14880)</p>
-          <span class="direct-sub">Caen, Côte de Nacre & Côte Fleurie</span>
+            <!-- E-mail cliquable -->
+            <a href="mailto:antoine.bnst@gmail.com" class="contact-action-item">
+              <div class="action-icon-circle">✉️</div>
+              <div class="action-text">
+                <span class="action-label">Courriel direct</span>
+                <strong class="action-val">antoine.bnst@gmail.com</strong>
+                <span class="action-sub">Réponse garantie sous 2h</span>
+              </div>
+            </a>
+
+            <!-- Localisation -->
+            <div class="contact-action-item static-item">
+              <div class="action-icon-circle">📍</div>
+              <div class="action-text">
+                <span class="action-label">Atelier & Siège</span>
+                <strong class="action-val">Hermanville-sur-Mer (14880)</strong>
+                <span class="action-sub">Interventions sur Caen, Côte de Nacre & Côte Fleurie</span>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <!-- Colonne 2 : Saisie directe du message -->
+        <div class="contact-right-col">
+          <div class="contact-form-card">
+            <h3>Envoyer un message direct</h3>
+            <p class="form-desc">Renseignez vos éléments pour recevoir une réponse rapide ou votre devis gratuit.</p>
+            
+            <form onsubmit="handleDirectMessage(event)" class="styled-form">
+              <div class="form-grid-2">
+                <div class="input-wrap">
+                  <label for="exp-nom">Votre nom *</label>
+                  <input type="text" id="exp-nom" required placeholder="Ex : Marie Dupont">
+                </div>
+                <div class="input-wrap">
+                  <label for="exp-tel">Téléphone *</label>
+                  <input type="tel" id="exp-tel" required placeholder="Ex : 06 12 34 56 78">
+                </div>
+              </div>
+
+              <div class="input-wrap">
+                <label for="exp-cimetiere">Cimetière / Commune concernée</label>
+                <input type="text" id="exp-cimetiere" placeholder="Ex : Cimetière d'Ouistreham ou Hermanville">
+              </div>
+
+              <div class="input-wrap">
+                <label for="exp-msg">Votre message ou précisions *</label>
+                <textarea id="exp-msg" rows="4" required placeholder="Indiquez vos besoins (nettoyage, fleurissement, date souhaitée, nom sur la concession...)"></textarea>
+              </div>
+
+              <button type="submit" class="btn-send-message">
+                <span>Envoyer ma demande à Antoine</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+              </button>
+            </form>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -348,13 +405,14 @@
   <footer>
     <div class="container footer-content">
       <p>&copy; 2026 Sérénité Sépultures — Entretien et fleurissement de sépultures en Normandie.</p>
-      <p>Paiements sécurisés par carte bancaire via Stripe • Service artisanal écoresponsable.</p>
+      <p>Artisanat d'hommage et soin de la mémoire dans le Calvados • Devis gratuit sur mesure.</p>
     </div>
   </footer>
 
-  <!-- SCRIPT LEAFLET GARANTI SANS BUG -->
+  <!-- SCRIPT INTERACTIF DE CARTE & ENVOI MESSAGE -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script>
+    // Carte Leaflet
     document.addEventListener("DOMContentLoaded", function() {
       const mapContainer = document.getElementById('map');
       if (!mapContainer) return;
@@ -370,7 +428,7 @@
         attribution: '&copy; OpenStreetMap'
       }).addTo(map);
 
-      // Zone 2 : 20 à 40 min de route (rayon 35 km)
+      // Zone 2 : 20 à 40 min (rayon 35 km)
       L.circle([49.2872, -0.3122], {
         color: '#C5B382',
         fillColor: '#C5B382',
@@ -391,7 +449,6 @@
         .bindPopup("<strong>Sérénité Sépultures</strong><br>Hermanville-sur-Mer (Épicentre)")
         .openPopup();
 
-      // Recalcul du conteneur pour éviter l'écran blanc
       setTimeout(function() {
         map.invalidateSize();
       }, 500);
@@ -399,6 +456,28 @@
         map.invalidateSize();
       });
     });
+
+    // Envoi direct de message sans outil externe (ouvre votre messagerie avec message formaté)
+    function handleDirectMessage(e) {
+      e.preventDefault();
+      const nom = document.getElementById('exp-nom').value;
+      const tel = document.getElementById('exp-tel').value;
+      const cimetiere = document.getElementById('exp-cimetiere').value;
+      const msg = document.getElementById('exp-msg').value;
+
+      const sujet = encodeURIComponent("Demande de devis - Sérénité Sépultures (" + nom + ")");
+      const corps = encodeURIComponent(
+        "Bonjour Antoine,\n\n" +
+        "Voici une nouvelle demande d'entretien / renseignement :\n\n" +
+        "- Nom : " + nom + "\n" +
+        "- Téléphone : " + tel + "\n" +
+        "- Cimetière / Commune : " + (cimetiere || "Non précisé") + "\n\n" +
+        "- Message / Détails :\n" + msg + "\n\n" +
+        "---\nEnvoyé depuis serenite-sepultures.fr"
+      );
+
+      window.location.href = "mailto:antoine.bnst@gmail.com?subject=" + sujet + "&body=" + corps;
+    }
   </script>
 
 </body>
