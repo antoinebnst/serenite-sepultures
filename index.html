@@ -13,7 +13,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-  <link rel="stylesheet" href="style.css">
+  <!-- Ajout du marqueur ?v=3 pour forcer le rechargement immédiat du style sans cache -->
+  <link rel="stylesheet" href="style.css?v=3">
 
   <script type="application/ld+json">
   {
@@ -132,12 +133,12 @@
         <div class="quality-card">
           <div class="quality-icon">🌿</div>
           <h3>Nettoyage Doux Écologique</h3>
-          <p>Jamais de nettoyeur haute pression qui effrite la pierre. Brossage manuel à l'eau, savon neutre et anti-mousse biodégradable.</p>
+          <p>Jamais de nettoyeur haute pression qui effrite la pierre. Brossage manuel à l'eau claire, savon neutre et anti-mousse biodégradable.</p>
         </div>
         <div class="quality-card">
           <div class="quality-icon">📸</div>
           <h3>Bilan Visuel sous 2h</h3>
-          <p>Dès la fin de l'intervention, réception par message ou e-mail d'un compte-rendu photo et vidéo complet en haute définition.</p>
+          <p>Dès la fin de l'intervention, réception par message ou courriel d'un compte-rendu photo et vidéo complet en haute définition.</p>
         </div>
         <div class="quality-card">
           <div class="quality-icon">🤝</div>
@@ -221,9 +222,9 @@
 
     <form id="order-form" action="https://formspree.io/f/mqazknyz" method="POST" onsubmit="handleOrderSubmission(event)" class="order-form-container">
       
-      <!-- Étape 1 : Deux colonnes comparatives avec sélection directe -->
+      <!-- Étape 1 : Deux colonnes comparatives -->
       <div class="order-block">
-        <h3>1. Choisissez votre niveau de soin et votre fréquence *</h3>
+        <h3>1. Choisissez votre formule et votre fréquence *</h3>
         
         <div class="compare-columns-grid">
           
@@ -232,15 +233,15 @@
             <div class="compare-header">
               <span class="compare-subtitle">Le soin rigoureux</span>
               <h4 class="compare-title">Formule ESSENTIEL</h4>
-              <p class="compare-lead">Nettoyage complet manuel, soigné et respectueux du monument.</p>
+              <p class="compare-lead">Nettoyage manuel soigné à l'eau claire et au savon écologique neutre (sans Kärcher).</p>
             </div>
 
             <ul class="compare-benefits">
-              <li>✓ Nettoyage manuel à l'eau et savon écologique neutre</li>
-              <li>✓ Désherbage minutieux du pourtour immédiat</li>
-              <li>✓ Lavage méticuleux des plaques et vases</li>
-              <li>✓ Arrosage des plantations déjà existantes</li>
-              <li>✓ Bilan complet photos HD Avant / Après sous 2h</li>
+              <li>✓ Nettoyage manuel doux (eau & savon écologique neutre)</li>
+              <li>✓ Désherbage minutieux et balayage du pourtour immédiat</li>
+              <li>✓ Lavage méticuleux des plaques commémoratives, pots et vases</li>
+              <li>✓ Arrosage des plantations déjà existantes sur le monument</li>
+              <li>✓ Bilan complet photos HD Avant / Après envoyé sous 2h</li>
             </ul>
 
             <div class="compare-options-group">
@@ -270,21 +271,21 @@
             </div>
           </div>
 
-          <!-- COLONNE 2 : FORMULE CONFORT / PREMIUM -->
+          <!-- COLONNE 2 : FORMULE CONFORT -->
           <div class="compare-col compare-col-featured">
             <span class="featured-badge">Recommandée • Hommage fleuri</span>
             <div class="compare-header">
-              <span class="compare-subtitle">Le soin complet & l'attention florale</span>
+              <span class="compare-subtitle">Le grand soin & l'hommage fleuri</span>
               <h4 class="compare-title">Formule CONFORT</h4>
-              <p class="compare-lead">Toutes les prestations Essentiel, sublimées par un fleurissement frais et une veilleuse.</p>
+              <p class="compare-lead">Tout le socle Essentiel enrichi d'un traitement marin, de fleurs fraîches et d'une vidéo HD.</p>
             </div>
 
             <ul class="compare-benefits">
               <li>✓ <strong>L'intégralité des prestations de la formule Essentiel</strong></li>
               <li>✓ Traitement préventif anti-mousse marin biodégradable</li>
-              <li>✓ Dépôt d'une plante fraîche de saison ou bouquet local</li>
-              <li>✓ Allumage d'une veilleuse d'hommage sur la tombe</li>
-              <li>✓ Bilan complet photos ET vidéo HD Avant / Après sous 2h</li>
+              <li>✓ Plante fraîche de saison ou bouquet d'artisan fleuriste local</li>
+              <li>✓ Allumage d'une veilleuse d'hommage déposée sur la pierre</li>
+              <li>✓ Bilan complet photos ET vidéo HD immersive sous 2h</li>
             </ul>
 
             <div class="compare-options-group">
@@ -317,48 +318,104 @@
         </div>
       </div>
 
-      <!-- Étape 2 : Options d'hommage -->
+      <!-- Étape 2 : Catalogue complet d'options à la carte -->
       <div class="order-block">
-        <h3>2. Ajoutez vos options d'hommage (facultatif)</h3>
+        <h3>2. Options & Hommages à la carte (facultatif)</h3>
+        
+        <p class="options-category-title">🌸 Fleurissement & Hommages</p>
         <div class="options-checklist">
           
           <label class="option-check-item">
-            <input type="checkbox" name="Options" value="Petite composition de saison (+39 €)" data-price="39" onchange="calculateTotal()">
+            <input type="checkbox" name="Options" value="Fleurissement frais de saison — Petite composition (39 €)" data-price="39" onchange="calculateTotal()">
             <div class="option-check-info">
               <strong>Fleurissement frais — Petite composition / bouquet</strong>
-              <span>Sélection chez nos fleuristes partenaires locaux</span>
+              <span>Sélection auprès d'artisans fleuristes locaux partenaires</span>
             </div>
             <span class="option-check-badge">+ 39 €</span>
           </label>
 
           <label class="option-check-item">
-            <input type="checkbox" name="Options" value="Moyenne composition de saison (+69 €)" data-price="69" onchange="calculateTotal()">
+            <input type="checkbox" name="Options" value="Fleurissement frais de saison — Coupe généreuse (69 €)" data-price="69" onchange="calculateTotal()">
             <div class="option-check-info">
-              <strong>Fleurissement frais — Moyenne composition / bouquet</strong>
-              <span>Coupe généreuse de plantes ou grand bouquet de saison</span>
+              <strong>Fleurissement frais — Moyenne composition / coupe généreuse</strong>
+              <span>Composition florale généreuse de plantes ou fleurs fraîches locales</span>
             </div>
             <span class="option-check-badge">+ 69 €</span>
           </label>
 
           <label class="option-check-item">
-            <input type="checkbox" name="Options" value="Fleurs synthétiques haute résistance (+49 €)" data-price="49" onchange="calculateTotal()">
+            <input type="checkbox" name="Options" value="Fleurs synthétiques Haute Résistance (59 €)" data-price="59" onchange="calculateTotal()">
             <div class="option-check-info">
-              <strong>Fleurissement Haute Résistance (synthétique)</strong>
-              <span>Composition résistante au vent marin et aux intempéries</span>
+              <strong>Fleurissement Haute Résistance (synthétique haut de gamme)</strong>
+              <span>Résistant aux embruns marins et intempéries prolongées</span>
             </div>
-            <span class="option-check-badge">+ 49 €</span>
+            <span class="option-check-badge">+ 59 €</span>
           </label>
 
           <label class="option-check-item">
-            <input type="checkbox" name="Options" value="Message personnalisé Jour J (+29 €)" data-price="29" onchange="calculateTotal()">
+            <input type="checkbox" name="Options" value="Dépôt message manuscrit Jour J (29 €)" data-price="29" onchange="calculateTotal()">
             <div class="option-check-info">
-              <strong>Dépôt d'un message manuscrit le Jour J</strong>
-              <span>Impression et dépôt d'une carte d'hommage à date précise</span>
+              <strong>Dépôt d'un message manuscrit personnalisé le Jour J</strong>
+              <span>Carte d'hommage déposée à une date anniversaire choisie</span>
             </div>
             <span class="option-check-badge">+ 29 €</span>
           </label>
 
+          <label class="option-check-item">
+            <input type="checkbox" name="Options" value="Lanterne solaire funéraire du souvenir (35 €)" data-price="35" onchange="calculateTotal()">
+            <div class="option-check-info">
+              <strong>Lanterne solaire funéraire du souvenir</strong>
+              <span>Veilleuse étanche et autonome s'illuminant chaque nuit</span>
+            </div>
+            <span class="option-check-badge">+ 35 €</span>
+          </label>
+
         </div>
+
+        <p class="options-category-title" style="margin-top: 1.5rem;">🛡️ Soins Spécifiques & Vigilance Côtière</p>
+        <div class="options-checklist">
+
+          <label class="option-check-item">
+            <input type="checkbox" name="Options" value="Passage Alerte Tempête (35 €)" data-price="35" onchange="calculateTotal()">
+            <div class="option-check-info">
+              <strong>Passage « Alerte Tempête »</strong>
+              <span>Remise en ordre express suite aux coups de vent (redressage, évacuation des débris)</span>
+            </div>
+            <span class="option-check-badge">+ 35 €</span>
+          </label>
+
+          <label class="option-check-item">
+            <input type="checkbox" name="Options" value="Traitement imperméabilisant / hydrofuge (39 €)" data-price="39" onchange="calculateTotal()">
+            <div class="option-check-info">
+              <strong>Traitement imperméabilisant / hydrofuge longue durée</strong>
+              <span>Protection invisible contre les infiltrations et les embruns (pierres calcaires/poreuses)</span>
+            </div>
+            <span class="option-check-badge">+ 39 €</span>
+          </label>
+
+          <label class="option-check-item">
+            <input type="checkbox" name="Options" value="Recharge gravillons blancs (49 €)" data-price="49" onchange="calculateTotal()">
+            <div class="option-check-info">
+              <strong>Recharge de gravillons blancs immaculés</strong>
+              <span>Évacuation des graviers noircis et pose de marbre blanc neuf en jardinière</span>
+            </div>
+            <span class="option-check-badge">+ 49 €</span>
+          </label>
+
+        </div>
+
+        <!-- ENCART RÉNOVATION DE LA PIERRE SUR DEVIS -->
+        <div class="renovation-box">
+          <div class="renovation-header">
+            <span class="renovation-icon">🛠️</span>
+            <div>
+              <strong>Rénovation de la Pierre (Sur Devis Personnalisé)</strong>
+              <p>Réchampissage & redorure des gravures effacées, réfection des joints d'étanchéité dégradés.</p>
+            </div>
+          </div>
+          <p class="renovation-note">Indiquez simplement votre besoin dans les précisions ci-dessous : un devis sur photo vous sera transmis sous 48h.</p>
+        </div>
+
       </div>
 
       <!-- Étape 3 : Lieu & Déplacement automatique -->
@@ -428,7 +485,7 @@
           </div>
 
           <div class="input-wrap">
-            <label for="client-details">Précisions éventuelles (périodes souhaitées, état de la tombe...)</label>
+            <label for="client-details">Précisions (date d'hommage, besoin rénovation / joints, état de la tombe...)</label>
             <textarea id="client-details" name="Details_Message" rows="3" placeholder="Indiquez ici toute information utile pour l'organisation..."></textarea>
           </div>
         </div>
@@ -649,7 +706,7 @@
         cartList.appendChild(row);
       }
 
-      // 2. Options d'hommage
+      // 2. Options d'hommage et soins
       const checkedOptions = document.querySelectorAll('input[name="Options"]:checked');
       checkedOptions.forEach(opt => {
         const optPrice = parseInt(opt.getAttribute('data-price'), 10);
@@ -728,7 +785,7 @@
               <div style="font-size: 3.2rem; margin-bottom: 1rem;">🌿</div>
               <h3 style="font-family: 'Cinzel', serif; color: var(--blue); font-size: 1.8rem; margin-bottom: 0.8rem;">Demande bien transmise !</h3>
               <p style="font-size: 1.05rem; color: var(--text-dark); max-width: 600px; margin: 0 auto 1.5rem; line-height: 1.6;">
-                Merci pour votre confiance. Antoine étudie la disponibilité de la sépulture et vous recontacte sous <strong>48h</strong> avec votre confirmation et votre lien de paiement sécurisé.
+                Merci pour votre confiance. Antoine étudie la faisabilité de l'intervention et vous recontacte sous <strong>48h</strong> avec votre confirmation et votre lien de paiement sécurisé.
               </p>
               <div style="display: inline-block; background: #F4F6F4; padding: 0.8rem 1.4rem; border-radius: 8px; font-size: 0.9rem; color: var(--blue);">
                 📞 Besoin d'échanger directement ? <strong>06 59 72 22 40</strong>
