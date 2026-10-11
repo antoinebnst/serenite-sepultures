@@ -144,7 +144,7 @@ body {
   stroke: currentColor;
 }
 
-/* BANNIÈRE HERO */
+/* HERO SECTION */
 .hero {
   background: 
     linear-gradient(rgba(30, 42, 56, 0.8), rgba(30, 42, 56, 0.85)),
@@ -373,6 +373,87 @@ body {
 .quality-card p {
   font-size: 0.88rem;
   color: var(--text-muted);
+}
+
+/* ENCART PROCESSUS */
+.section-process {
+  background-color: #F8FAF8;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 4rem 0;
+}
+
+.process-steps-grid {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 0.8rem;
+  margin-top: 2rem;
+}
+
+.step-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.6rem 1.1rem;
+  flex: 1;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.step-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--green);
+}
+
+.step-num {
+  position: absolute;
+  top: -12px;
+  background: var(--blue);
+  color: var(--gold);
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--white);
+}
+
+.step-icon {
+  font-size: 2rem;
+  margin: 0.4rem 0 0.8rem;
+}
+
+.step-card h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  color: var(--blue);
+  margin-bottom: 0.5rem;
+}
+
+.step-card p {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+.step-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-size: 1.4rem;
+  font-weight: 700;
+  user-select: none;
 }
 
 /* CONFIGURATEUR DE COMMANDE */
@@ -774,15 +855,8 @@ body {
   margin-bottom: 0.6rem;
 }
 
-.zone-inclus {
-  background-color: #E8F5E9;
-  color: #2E7D32;
-}
-
-.zone-supp {
-  background-color: #FFF3E0;
-  color: #E65100;
-}
+.zone-inclus { background-color: #E8F5E9; color: #2E7D32; }
+.zone-supp { background-color: #FFF3E0; color: #E65100; }
 
 .zone-card h3 {
   font-size: 1.05rem;
@@ -861,6 +935,18 @@ footer {
   .map-layout,
   .summary-block {
     grid-template-columns: 1fr;
+  }
+  .process-steps-grid {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .step-arrow {
+    transform: rotate(90deg);
+    margin: -0.4rem 0;
+  }
+  .step-card {
+    width: 100%;
+    padding: 1.4rem;
   }
 }
 
