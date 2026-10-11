@@ -48,7 +48,7 @@
     🌿 <strong>Offre de lancement :</strong> -10% sur toute première commande avec le code <span>SERENITE10</span>
   </div>
 
-  <!-- NAVIGATION -->
+  <!-- NAVIGATION AVEC PICTO CONTACT -->
   <header class="header">
     <div class="container nav-box">
       <a href="#" class="logo-link">
@@ -60,13 +60,20 @@
         <a href="#formules">Nos Formules</a>
         <a href="#options">Options</a>
         <a href="#secteur">Secteur</a>
-        <a href="#contact">Contact</a>
+        <!-- Picto & Bouton Contact -->
+        <a href="#contact" class="nav-contact-btn" title="Nous contacter">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="20" height="16" x="2" y="4" rx="2"/>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+          </svg>
+          <span>Contact</span>
+        </a>
         <a href="https://billing.stripe.com/p/login/VOTRE_PORTAIL_STRIPE" class="btn-client" target="_blank" rel="noopener">Espace Client</a>
       </nav>
     </div>
   </header>
 
-  <!-- BANNIÈRE HERO AVEC LOGO CENTRÉ AU-DESSUS DU TITRE -->
+  <!-- BANNIÈRE HERO -->
   <section class="hero">
     <div class="container hero-content">
       <div class="hero-logo-box">
@@ -284,10 +291,10 @@
     </div>
   </section>
 
-  <!-- ZONE D'INTERVENTION (MAX 40 MIN) -->
+  <!-- ZONE D'INTERVENTION GÉOGRAPHIQUE -->
   <section id="secteur" class="container section">
     <div class="section-header">
-      <h2>Périmètre d'Intervention</h2>
+      <h2>Périmètre d'Intervention Géographique</h2>
       <p>Épicentre des interventions : Hermanville-sur-Mer (14880) — Rayon maximum de 40 min de trajet</p>
     </div>
     
@@ -321,27 +328,28 @@
     </div>
   </section>
 
-  <!-- NOUVELLE SECTION CONTACT & FORMULAIRE (NETLIFY FORMS INCLUS) -->
-  <section id="contact" class="section section-alt">
+  <!-- DERNIER BANDEAU : CONTACT & DEVIS GRATUIT -->
+  <section id="contact" class="section section-contact-banner">
     <div class="container">
       <div class="section-header">
+        <span class="sub-badge">À votre écoute</span>
         <h2>Contactez-nous & Devis Gratuit</h2>
-        <p>Une question, un devis de réfection ou une demande urgente ? Réponse garantie sous 2h.</p>
+        <p>Une question, un besoin particulier ou une demande de devis ? Réponse garantie sous 2h.</p>
       </div>
 
       <div class="contact-grid">
         
         <!-- Coordonnées directes -->
         <div class="contact-info">
-          <h3>Un échange humain & bienveillant</h3>
+          <h3>Un artisan local à votre service</h3>
           <p>
-            Chaque sépulture et chaque histoire de famille est unique. N'hésitez pas à me joindre directement pour me décrire vos attentes ou poser vos questions.
+            Chaque sépulture et chaque hommage est unique. N'hésitez pas à nous joindre pour échanger sur vos souhaits ou vérifier la faisabilité sur un cimetière précis.
           </p>
           
           <div class="contact-card-item">
             <div class="contact-icon">📍</div>
             <div>
-              <strong>Atelier & Siège</strong>
+              <strong>Siège & Épicentre</strong>
               <p>Hermanville-sur-Mer (14880)</p>
             </div>
           </div>
@@ -349,30 +357,29 @@
           <div class="contact-card-item">
             <div class="contact-icon">📞</div>
             <div>
-              <strong>Téléphone</strong>
-              <p><a href="tel:0600000000" class="contact-link">06 00 00 00 00</a> (Appels & SMS 7j/7)</p>
+              <strong>Téléphone direct</strong>
+              <p><a href="tel:0600000000" class="contact-link">06 00 00 00 00</a> (7j/7)</p>
             </div>
           </div>
 
           <div class="contact-card-item">
             <div class="contact-icon">✉️</div>
             <div>
-              <strong>Courriel direct</strong>
+              <strong>Courriel</strong>
               <p><a href="mailto:contact@serenite-sepultures.fr" class="contact-link">contact@serenite-sepultures.fr</a></p>
             </div>
           </div>
 
           <div class="contact-notice">
-            🌿 <em>Tous les devis personnalisés (redorure, réfection de joints, intervention spécifique) sont entièrement gratuits et sans engagement.</em>
+            🌿 <em>Tous les devis (redorure, joints, restauration ou demande spécifique) sont entièrement gratuits et sans engagement.</em>
           </div>
         </div>
 
         <!-- Formulaire Netlify -->
         <div class="contact-form-wrap">
           <form name="contact-serenite" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
-            <!-- Champ anti-spam masqué pour Netlify -->
             <p class="hidden-field">
-              <label>Ne pas remplir si vous êtes humain : <input name="bot-field"></label>
+              <label>Ne pas remplir : <input name="bot-field"></label>
             </p>
 
             <div class="form-row">
@@ -401,16 +408,16 @@
                 <select id="formule" name="formule">
                   <option value="formule-essentiel">Formule Essentiel (79 €)</option>
                   <option value="formule-confort">Formule Confort (99 €)</option>
-                  <option value="abonnement">Abonnement annuel (4 ou 12 passages)</option>
-                  <option value="devis-redorure">Devis Redorure / Rénovation</option>
-                  <option value="autre">Autre demande / Renseignement</option>
+                  <option value="abonnement">Abonnement annuel</option>
+                  <option value="devis-restauration">Devis Redorure / Rénovation</option>
+                  <option value="autre">Autre renseignement</option>
                 </select>
               </div>
             </div>
 
             <div class="form-group">
               <label for="message">Votre message ou précisions *</label>
-              <textarea id="message" name="message" rows="4" required placeholder="Indiquez l'emplacement de la sépulture, le nom de famille ou vos souhaits particuliers..."></textarea>
+              <textarea id="message" name="message" rows="4" required placeholder="Nom de famille de la sépulture, date souhaitée, état de la pierre..."></textarea>
             </div>
 
             <button type="submit" class="btn-submit">Envoyer ma demande</button>
