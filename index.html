@@ -13,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-  <link rel="stylesheet" href="style.css?v=4">
+  <link rel="stylesheet" href="style.css?v=5">
 
   <script type="application/ld+json">
   {
@@ -156,7 +156,7 @@
   <!-- ENCART VISUEL : PROCESSUS DE COMMANDE & PAIEMENT -->
   <section id="processus" class="section section-process">
     <div class="container">
-      <div class="section-header">
+      <div class="process-banner-box">
         <span class="sub-badge">En toute sérénité</span>
         <h2>Comment se déroule votre demande ?</h2>
         <p>Un parcours transparent, sans aucun paiement immédiat à la validation.</p>
@@ -316,7 +316,7 @@
         </div>
       </div>
 
-      <!-- Étape 2 : Catalogue complet d'options à la carte -->
+      <!-- Étape 2 : Catalogue d'options -->
       <div class="order-block">
         <h3>2. Options & Hommages à la carte (facultatif)</h3>
         
@@ -404,23 +404,11 @@
             <input type="checkbox" name="Options" value="Rénovation et changement des gravillons (49 €)" data-price="49" onchange="calculateTotal()">
             <div class="option-check-info">
               <strong>Rénovation et changement des gravillons</strong>
-              <span>Nettoyage du réceptacle, évacuation des graviers noircis et pose de marbre blanc neuf</span>
+              <span>Nettoyage du réceptacle, évacuation des graviers noircis et renouvellement par des gravillons blancs neufs</span>
             </div>
             <span class="option-check-badge">+ 49 €</span>
           </label>
 
-        </div>
-
-        <!-- ENCART RÉNOVATION DE LA PIERRE SUR DEVIS -->
-        <div class="renovation-box">
-          <div class="renovation-header">
-            <span class="renovation-icon">🛠️</span>
-            <div>
-              <strong>Rénovation de la Pierre (Sur Devis Personnalisé)</strong>
-              <p>Réchampissage & redorure des gravures effacées, réfection des joints d'étanchéité dégradés.</p>
-            </div>
-          </div>
-          <p class="renovation-note">Indiquez simplement votre besoin dans les précisions ci-dessous : un devis sur photo vous sera transmis sous 48h.</p>
         </div>
 
       </div>
@@ -492,7 +480,7 @@
           </div>
 
           <div class="input-wrap">
-            <label for="client-details">Précisions (date d'hommage, besoin rénovation / joints, état de la tombe...)</label>
+            <label for="client-details">Précisions (date d'hommage, particularités de la concession...)</label>
             <textarea id="client-details" name="Details_Message" rows="3" placeholder="Indiquez ici toute information utile pour l'organisation..."></textarea>
           </div>
         </div>
@@ -571,7 +559,7 @@
       <div class="section-header">
         <span class="sub-badge">À votre écoute</span>
         <h2>Me contacter</h2>
-        <p>Une question ou un devis spécifique (redorure de lettres, joints) ? Échangeons directement.</p>
+        <p>Une question ou une demande personnalisée ? Échangeons directement.</p>
       </div>
 
       <div class="contact-actions-row">
