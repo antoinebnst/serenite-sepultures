@@ -13,8 +13,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-  <!-- Versionneur v=7 pour forcer la mise à jour -->
-  <link rel="stylesheet" href="style.css?v=7">
+  <!-- Versionneur v=9 pour vider le cache navigateur -->
+  <link rel="stylesheet" href="style.css?v=9">
 
   <script type="application/ld+json">
   {
@@ -107,6 +107,10 @@
       </div>
 
       <div class="about-profile-card">
+        <!-- Photo Antoine avec balise img explicite -->
+        <div class="profile-img-wrap">
+          <img src="antoine.jpg" alt="Antoine — Sérénité Sépultures" class="profile-avatar">
+        </div>
         <div class="profile-details">
           <div class="profile-tag">Artisan Indépendant</div>
           <h3>Votre Interlocuteur Dédié</h3>
@@ -154,7 +158,7 @@
     </div>
   </section>
 
-  <!-- ENCART VISUEL : PROCESSUS DE COMMANDE & PAIEMENT (AVEC PATTERN BIEN VISIBLE) -->
+  <!-- ENCART VISUEL : PROCESSUS DE COMMANDE & PAIEMENT (MOTIF À POINTS) -->
   <section id="processus" class="section section-process">
     <div class="container">
       <div class="section-header">
