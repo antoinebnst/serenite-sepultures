@@ -13,8 +13,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-  <!-- Versionneur v=10 pour vider le cache navigateur -->
-  <link rel="stylesheet" href="style.css?v=10">
+  <!-- Versionneur v=12 pour forcer le rafraîchissement immédiat -->
+  <link rel="stylesheet" href="style.css?v=12">
 
   <script type="application/ld+json">
   {
@@ -36,9 +36,9 @@
 </head>
 <body>
 
-  <!-- BANDEAU PROMOTIONNEL -->
+  <!-- BANDEAU PROMOTIONNEL FIXE -->
   <div class="top-banner">
-    🌿 <strong>Offre de lancement :</strong> -10% supplémentaires sur toute <strong>Formule 4 passages</strong> avec le code <span>PACK10</span>
+    🌿 <strong>Offre de lancement :</strong> -10% supplémentaires sur toute <strong>Formule 4 passages</strong> avec le code <span>BVN10</span>
   </div>
 
   <!-- NAVIGATION -->
@@ -107,7 +107,6 @@
       </div>
 
       <div class="about-profile-card">
-        <!-- Photo Antoine avec balise img explicite -->
         <div class="profile-img-wrap">
           <img src="antoine.jpg" alt="Antoine — Sérénité Sépultures" class="profile-avatar">
         </div>
@@ -158,7 +157,7 @@
     </div>
   </section>
 
-  <!-- ENCART VISUEL : PROCESSUS DE COMMANDE & PAIEMENT (MOTIF À POINTS) -->
+  <!-- ENCART VISUEL : PROCESSUS DE COMMANDE & PAIEMENT -->
   <section id="processus" class="section section-process">
     <div class="container">
       <div class="section-header">
@@ -167,7 +166,6 @@
       </div>
 
       <div class="process-steps-grid">
-        
         <div class="step-card">
           <div class="step-num">1</div>
           <div class="step-icon">📋</div>
@@ -210,7 +208,6 @@
           <h3>Rapport visuel</h3>
           <p>Envoi immédiat de votre bilan complet photos et vidéo Avant / Après dès la fin des soins.</p>
         </div>
-
       </div>
     </div>
   </section>
@@ -497,7 +494,7 @@
           <div class="promo-box">
             <label for="promo-input">Code de réduction</label>
             <div class="promo-input-group">
-              <input type="text" id="promo-input" placeholder="Ex : PACK10">
+              <input type="text" id="promo-input" placeholder="Ex : BVN10">
               <button type="button" class="btn-apply-promo" onclick="applyPromoCode()">Appliquer</button>
             </div>
             <p id="promo-msg" class="promo-feedback"></p>
@@ -577,4 +574,232 @@
 
         <a href="mailto:contact@serenite-sepultures.fr" class="contact-direct-btn">
           <span class="contact-btn-icon">✉️</span>
-          <div class="contact-
+          <div class="contact-btn-text">
+            <small>Adresse mail</small>
+            <strong class="email-text">contact@serenite-sepultures.fr</strong>
+          </div>
+        </a>
+
+        <div class="contact-direct-btn static-btn">
+          <span class="contact-btn-icon">📍</span>
+          <div class="contact-btn-text">
+            <small>Atelier & Siège</small>
+            <strong>Hermanville-sur-Mer (14)</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-content">
+      <p>&copy; 2026 Sérénité Sépultures — Entretien et fleurissement de sépultures en Normandie.</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPT LEAFLET & LOGIQUE DE COMMANDE -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script>
+    let appliedPromoCode = "";
+
+    document.addEventListener("DOMContentLoaded", function() {
+      const mapContainer = document.getElementById('map');
+      if (mapContainer) {
+        const map = L.map('map', { center: [49.2872, -0.3122], zoom: 10, scrollWheelZoom: false });
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '&copy; OpenStreetMap' }).addTo(map);
+
+        L.circle([49.2872, -0.3122], { 
+          color: '#C5B382', 
+          fillColor: '#C5B382', 
+          fillOpacity: 0.18, 
+          radius: 32000 
+        }).addTo(map).bindPopup("Zone Élargie (+25 €)");
+
+        L.circle([49.2872, -0.3122], { 
+          color: '#4E7250', 
+          fillColor: '#8AA089', 
+          fillOpacity: 0.35, 
+          radius: 12500 
+        }).addTo(map).bindPopup("Zone Locale (Inclus)");
+
+        L.marker([49.2872, -0.3122]).addTo(map).bindPopup("<strong>Sérénité Sépultures</strong><br>Hermanville-sur-Mer").openPopup();
+
+        setTimeout(() => map.invalidateSize(), 500);
+        window.addEventListener('resize', () => map.invalidateSize());
+      }
+      calculateTotal();
+    });
+
+    function onPlanChange() {
+      const selectedPlan = document.querySelector('input[name="Formule"]:checked');
+      const isPack = selectedPlan && selectedPlan.getAttribute('data-ispack') === 'true';
+      const msg = document.getElementById('promo-msg');
+
+      if (appliedPromoCode === "BVN10" && !isPack) {
+        appliedPromoCode = "";
+        if (msg) {
+          msg.className = "promo-feedback promo-error";
+          msg.innerText = "ℹ️ Le code BVN10 est réservé aux Formules 4 passages.";
+        }
+      }
+      calculateTotal();
+    }
+
+    function applyPromoCode() {
+      const input = document.getElementById('promo-input');
+      const msg = document.getElementById('promo-msg');
+      const code = input.value.trim().toUpperCase();
+
+      const selectedPlan = document.querySelector('input[name="Formule"]:checked');
+      const isPack = selectedPlan && selectedPlan.getAttribute('data-ispack') === 'true';
+
+      if (!code) {
+        appliedPromoCode = "";
+        msg.innerText = "";
+        calculateTotal();
+        return;
+      }
+
+      if (code === "BVN10") {
+        if (isPack) {
+          appliedPromoCode = "BVN10";
+          msg.className = "promo-feedback promo-success";
+          msg.innerText = "✓ Code BVN10 appliqué (-10% sur votre Formule 4 passages)";
+        } else {
+          appliedPromoCode = "";
+          msg.className = "promo-feedback promo-error";
+          msg.innerText = "✗ Le code BVN10 s'applique uniquement aux Formules 4 passages.";
+        }
+      } else {
+        appliedPromoCode = "";
+        msg.className = "promo-feedback promo-error";
+        msg.innerText = "✗ Code promotionnel invalide.";
+      }
+
+      calculateTotal();
+    }
+
+    function calculateTotal() {
+      let subtotal = 0;
+      let packPrice = 0;
+      const cartList = document.getElementById('cart-items');
+      if (!cartList) return;
+      cartList.innerHTML = '';
+
+      // 1. Formule
+      const selectedPlan = document.querySelector('input[name="Formule"]:checked');
+      let isPack = false;
+      if (selectedPlan) {
+        const planPrice = parseInt(selectedPlan.getAttribute('data-price'), 10);
+        subtotal += planPrice;
+        isPack = selectedPlan.getAttribute('data-ispack') === 'true';
+        if (isPack) packPrice = planPrice;
+        
+        const row = document.createElement('div');
+        row.className = 'cart-item-row';
+        row.innerHTML = `<span>${selectedPlan.value}</span><strong>${planPrice} €</strong>`;
+        cartList.appendChild(row);
+      }
+
+      // 2. Options d'hommage et soins
+      const checkedOptions = document.querySelectorAll('input[name="Options"]:checked');
+      checkedOptions.forEach(opt => {
+        const optPrice = parseInt(opt.getAttribute('data-price'), 10);
+        subtotal += optPrice;
+
+        const row = document.createElement('div');
+        row.className = 'cart-item-row';
+        row.innerHTML = `<span>+ ${opt.value}</span><strong>${optPrice} €</strong>`;
+        cartList.appendChild(row);
+      });
+
+      // 3. Frais de déplacement
+      const selectCommune = document.getElementById('client-commune');
+      let currentFeeText = "Inclus (0 €)";
+      if (selectCommune && selectCommune.selectedIndex > 0) {
+        const selectedOption = selectCommune.options[selectCommune.selectedIndex];
+        const fee = parseInt(selectedOption.getAttribute('data-fee') || "0", 10);
+        const communeName = selectedOption.text;
+
+        const row = document.createElement('div');
+        row.className = 'cart-item-row';
+
+        if (selectedOption.value === "hors_zone") {
+          currentFeeText = "Sur devis spécifique";
+          row.innerHTML = `<span>Déplacement : ${communeName}</span><strong style="color: #C5B382;">Sur Devis</strong>`;
+        } else if (fee > 0) {
+          subtotal += fee;
+          currentFeeText = "+ " + fee + " €";
+          row.innerHTML = `<span>Déplacement : ${communeName}</span><strong>+ ${fee} €</strong>`;
+        } else {
+          currentFeeText = "Inclus (0 €)";
+          row.innerHTML = `<span>Déplacement : ${communeName}</span><strong style="color: #2E7D32;">Inclus (0 €)</strong>`;
+        }
+        cartList.appendChild(row);
+      }
+      document.getElementById('hidden-frais').value = currentFeeText;
+
+      // 4. Déduction Code BVN10
+      let totalFinal = subtotal;
+      if (appliedPromoCode === "BVN10" && isPack && packPrice > 0) {
+        const remise = Math.round(packPrice * 0.10);
+        totalFinal = subtotal - remise;
+
+        const promoRow = document.createElement('div');
+        promoRow.className = 'cart-item-row promo-discount-row';
+        promoRow.innerHTML = `<span>Remise offre de lancement (-10%)</span><strong style="color: #2E7D32;">- ${remise} €</strong>`;
+        cartList.appendChild(promoRow);
+        document.getElementById('hidden-promo').value = "BVN10 (-" + remise + " €)";
+      } else {
+        document.getElementById('hidden-promo').value = "Aucune";
+      }
+
+      document.getElementById('cart-total-price').innerText = totalFinal + " €";
+      document.getElementById('hidden-total').value = totalFinal + " €";
+      return totalFinal;
+    }
+
+    async function handleOrderSubmission(e) {
+      e.preventDefault();
+      const form = document.getElementById('order-form');
+      const btn = form.querySelector('.btn-validate-order');
+
+      btn.innerText = "Transmission en cours...";
+      btn.disabled = true;
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          form.innerHTML = `
+            <div style="text-align: center; padding: 3.5rem 1.5rem; background: #FFFFFF; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 4px 15px rgba(0,0,0,0.04);">
+              <div style="font-size: 3.2rem; margin-bottom: 1rem;">🌿</div>
+              <h3 style="font-family: 'Cinzel', serif; color: var(--blue); font-size: 1.8rem; margin-bottom: 0.8rem;">Demande bien transmise !</h3>
+              <p style="font-size: 1.05rem; color: var(--text-dark); max-width: 600px; margin: 0 auto 1.5rem; line-height: 1.6;">
+                Merci pour votre confiance. Antoine étudie la faisabilité de l'intervention et vous recontacte sous <strong>48h</strong> avec votre confirmation et votre lien de paiement sécurisé.
+              </p>
+              <div style="display: inline-block; background: #F4F6F4; padding: 0.8rem 1.4rem; border-radius: 8px; font-size: 0.9rem; color: var(--blue);">
+                📞 Besoin d'échanger directement ? <strong>06 59 72 22 40</strong>
+              </div>
+            </div>
+          `;
+          window.location.hash = "commander";
+        } else {
+          btn.innerText = "Transmettre ma commande à Antoine";
+          btn.disabled = false;
+          alert("Une erreur est survenue lors de l'envoi. Vous pouvez contacter Antoine directement au 06 59 72 22 40.");
+        }
+      } catch (err) {
+        btn.innerText = "Transmettre ma commande à Antoine";
+        btn.disabled = false;
+        alert("Impossible d'envoyer la demande. Merci d'appeler directement le 06 59 72 22 40.");
+      }
+    }
+  </script>
+</body>
+</html>
