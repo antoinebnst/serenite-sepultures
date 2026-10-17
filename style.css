@@ -24,6 +24,7 @@ body {
   color: var(--text-dark);
   background: var(--white);
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 .container {
@@ -56,7 +57,7 @@ body {
   margin-left: 0.3rem;
 }
 
-/* HEADER & NAVBAR (SE PLACE SOUS LE BANDEAU FIXE) */
+/* HEADER & NAVBAR */
 .header {
   background: var(--blue);
   padding: 0.75rem 0;
@@ -70,6 +71,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 .brand-horizontal {
@@ -146,6 +148,41 @@ body {
   width: 15px;
   height: 15px;
   stroke: currentColor;
+}
+
+/* BOUTON BURGER (DÉSACTIVÉ SUR GRAND ÉCRAN) */
+.burger-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 36px;
+  height: 36px;
+  z-index: 1002;
+}
+
+.burger-btn span {
+  width: 100%;
+  height: 2.5px;
+  background-color: var(--gold);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* ANIMATION DU BURGER EN CROIX */
+.burger-btn.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.burger-btn.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-btn.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
 }
 
 /* HERO SECTION */
@@ -260,7 +297,7 @@ body {
   margin-bottom: 0.5rem;
 }
 
-/* SECTION QUI SUIS-JE & AFFICHAGE PHOTO */
+/* SECTION QUI SUIS-JE */
 .about-grid {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
@@ -321,7 +358,6 @@ body {
   display: block;
 }
 
-/* CENTRAGE RECALIBRÉ SUR LE VISAGE */
 .profile-avatar {
   width: 100%;
   height: 100%;
@@ -398,7 +434,7 @@ body {
   color: var(--text-muted);
 }
 
-/* ENCART PROCESSUS : PATTERN À POINTS ÉPURÉ & DISCRET */
+/* ENCART PROCESSUS */
 .section-process {
   background-color: #F8FAF8;
   background-image: radial-gradient(rgba(30, 42, 56, 0.05) 1px, transparent 1px);
@@ -489,6 +525,7 @@ body {
   gap: 2.2rem;
   max-width: 980px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .order-block {
@@ -497,6 +534,7 @@ body {
   border-radius: 12px;
   padding: 2rem;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  width: 100%;
 }
 
 .order-block h3 {
@@ -734,12 +772,17 @@ body {
   color: var(--green);
 }
 
-/* SUMMARY & COORDONNÉES */
+/* SECTION 3 : LIEU & COORDONNÉES */
 .summary-block {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
   gap: 2rem;
   align-items: start;
+}
+
+.summary-details {
+  width: 100%;
+  min-width: 0;
 }
 
 .form-grid-2 {
@@ -752,6 +795,8 @@ body {
   margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  min-width: 0;
 }
 
 .input-wrap label {
@@ -771,6 +816,15 @@ body {
   border-radius: 6px;
   outline: none;
   background-color: #FAFAFA;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.input-wrap select {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .input-wrap input:focus,
@@ -789,6 +843,8 @@ body {
   padding: 1.6rem;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  min-width: 0;
 }
 
 .cart-box h4 {
@@ -806,17 +862,27 @@ body {
   gap: 0.5rem;
   margin-bottom: 1rem;
   font-size: 0.82rem;
+  width: 100%;
 }
 
 .cart-item-row {
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
   border-bottom: 1px dashed #E0E6E0;
   padding-bottom: 0.35rem;
+  gap: 0.5rem;
+}
+
+.cart-item-row span {
+  flex-grow: 1;
+  word-break: break-word;
 }
 
 .cart-item-row strong {
   color: var(--blue);
+  flex-shrink: 0;
+  text-align: right;
 }
 
 /* CODE PROMO */
@@ -825,6 +891,7 @@ body {
   padding: 0.8rem 0;
   border-top: 1px dashed #D5DDD5;
   border-bottom: 1px dashed #D5DDD5;
+  width: 100%;
 }
 
 .promo-box label {
@@ -838,10 +905,12 @@ body {
 .promo-input-group {
   display: flex;
   gap: 0.5rem;
+  width: 100%;
 }
 
 .promo-input-group input {
-  flex-grow: 1;
+  flex: 1 1 auto;
+  min-width: 0;
   font-family: 'Montserrat', sans-serif;
   font-size: 0.85rem;
   font-weight: 600;
@@ -866,6 +935,7 @@ body {
   font-size: 0.8rem;
   font-weight: 600;
   cursor: pointer;
+  flex-shrink: 0;
   transition: background 0.2s;
 }
 
@@ -921,6 +991,7 @@ body {
   font-size: 0.95rem;
   font-weight: 700;
   cursor: pointer;
+  width: 100%;
   transition: background 0.2s;
 }
 
@@ -1074,7 +1145,7 @@ footer {
   font-size: 0.85rem;
 }
 
-/* RESPONSIVE */
+/* RESPONSIVE SMARTPHONE & MENU BURGER */
 @media (max-width: 900px) {
   .compare-columns-grid {
     grid-template-columns: 1fr;
@@ -1100,17 +1171,63 @@ footer {
 
 @media (max-width: 768px) {
   .header {
-    top: 56px; /* Ajuste la hauteur si le bandeau passe sur 2 lignes sur mobile */
+    top: 56px;
+    padding: 0.6rem 0;
   }
+
+  /* ACTIVATION DU BURGER */
+  .burger-btn {
+    display: flex;
+  }
+
+  /* LE MENU DEVIENT UN TIROIR DÉROULANT SOUS L'EN-TÊTE */
   .nav {
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    gap: 0.6rem;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: var(--blue);
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1rem 1.5rem 1.5rem;
+    gap: 0;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+    border-top: 1px solid rgba(197, 179, 130, 0.2);
   }
+
+  .nav.nav-open {
+    display: flex;
+  }
+
+  .nav a {
+    padding: 0.85rem 0.5rem;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    width: 100%;
+  }
+
+  .nav a:last-child {
+    border-bottom: none;
+    margin-top: 0.6rem;
+    justify-content: center;
+    padding: 0.75rem 1rem;
+  }
+
   .form-grid-2 {
     grid-template-columns: 1fr;
   }
   .hero h1 {
     font-size: 1.65rem;
+  }
+  .order-block {
+    padding: 1.2rem 1rem;
+  }
+  .cart-box {
+    padding: 1.2rem 1rem;
+  }
+  .container {
+    width: 94%;
   }
 }

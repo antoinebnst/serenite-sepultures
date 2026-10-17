@@ -13,8 +13,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-  <!-- Versionneur v=13 -->
-  <link rel="stylesheet" href="style.css?v=13">
+  <!-- Versionneur v=16 pour recharger le cache -->
+  <link rel="stylesheet" href="style.css?v=16">
 
   <script type="application/ld+json">
   {
@@ -45,19 +45,28 @@
   <header class="header">
     <div class="container nav-box">
       <a href="#" class="brand-horizontal">
-        <img src="logo.png" alt="Nacre Sépultures" class="brand-picto" onerror="this.style.display='none'">
+        <img src="logo.png" alt="Nacre Sépultures" class="brand-picto">
         <div class="brand-text">
           <span class="brand-title">NACRE SÉPULTURES</span>
           <span class="brand-sub">MÉMOIRE • RESPECT • SÉRÉNITÉ</span>
         </div>
       </a>
-      <nav class="nav">
-        <a href="#presentation">Qui suis-je ?</a>
-        <a href="#engagements">Engagements</a>
-        <a href="#processus">Démarche</a>
-        <a href="#commander">Tarifs & Options</a>
-        <a href="#secteur">Secteur</a>
-        <a href="#contact" class="nav-contact-btn" title="Nous contacter">
+
+      <!-- BOUTON BURGER (VISIBLE UNIQUEMENT SUR MOBILE) -->
+      <button class="burger-btn" id="burger-btn" aria-label="Menu de navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- LIENS DE NAVIGATION -->
+      <nav class="nav" id="main-nav">
+        <a href="#presentation" onclick="closeNav()">Qui suis-je ?</a>
+        <a href="#engagements" onclick="closeNav()">Engagements</a>
+        <a href="#processus" onclick="closeNav()">Démarche</a>
+        <a href="#commander" onclick="closeNav()">Tarifs & Options</a>
+        <a href="#secteur" onclick="closeNav()">Secteur</a>
+        <a href="#contact" class="nav-contact-btn" onclick="closeNav()" title="Nous contacter">
           <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <rect width="20" height="16" x="2" y="4" rx="2"/>
             <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
@@ -220,14 +229,13 @@
       <p>Comparez nos deux formules puis sélectionnez votre fréquence (passage unique ou formule 4 passages).</p>
     </div>
 
-    <form id="order-form" action="https://formspree.io/f/xljgzvwg" method="POST" onsubmit="handleOrderSubmission(event)" class="order-form-container">
+    <form id="order-form" action="https://formspree.io/f/mqazknyz" method="POST" onsubmit="handleOrderSubmission(event)" class="order-form-container">
       
       <!-- Étape 1 : Deux colonnes comparatives -->
       <div class="order-block">
         <h3>1. Choisissez votre formule et votre fréquence *</h3>
         
         <div class="compare-columns-grid">
-          
           <!-- COLONNE 1 : FORMULE ESSENTIEL -->
           <div class="compare-col">
             <div class="compare-header">
@@ -313,7 +321,6 @@
               </label>
             </div>
           </div>
-
         </div>
       </div>
 
@@ -323,7 +330,6 @@
         
         <p class="options-category-title">🌸 Fleurissement & Hommages</p>
         <div class="options-checklist">
-          
           <label class="option-check-item">
             <input type="checkbox" name="Options" value="Fleurissement frais de saison — Petite composition (39 €)" data-price="39" onchange="calculateTotal()">
             <div class="option-check-info">
@@ -377,12 +383,10 @@
             </div>
             <span class="option-check-badge">+ 35 €</span>
           </label>
-
         </div>
 
         <p class="options-category-title" style="margin-top: 1.5rem;">🛡️ Soins Spécifiques & Vigilance Côtière</p>
         <div class="options-checklist">
-
           <label class="option-check-item">
             <input type="checkbox" name="Options" value="Passage Alerte Tempête (35 €)" data-price="35" onchange="calculateTotal()">
             <div class="option-check-info">
@@ -409,9 +413,7 @@
             </div>
             <span class="option-check-badge">+ 49 €</span>
           </label>
-
         </div>
-
       </div>
 
       <!-- Étape 3 : Lieu & Déplacement automatique -->
@@ -514,7 +516,6 @@
           <p class="cart-notice">🌿 Aucun paiement immédiat requis. Antoine vous confirme la date et les détails sous 48h.</p>
         </div>
       </div>
-
     </form>
   </section>
 
@@ -598,10 +599,32 @@
     </div>
   </footer>
 
-  <!-- SCRIPT LEAFLET & LOGIQUE DE COMMANDE -->
+  <!-- SCRIPT LEAFLET, BURGER & COMMANDE -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script>
     let appliedPromoCode = "";
+
+    // GESTION DU MENU BURGER MOBILE
+    const burgerBtn = document.getElementById('burger-btn');
+    const mainNav = document.getElementById('main-nav');
+
+    if (burgerBtn && mainNav) {
+      burgerBtn.addEventListener('click', function() {
+        const isOpen = mainNav.classList.toggle('nav-open');
+        burgerBtn.classList.toggle('open', isOpen);
+        burgerBtn.setAttribute('aria-expanded', isOpen);
+      });
+    }
+
+    function closeNav() {
+      if (mainNav && mainNav.classList.contains('nav-open')) {
+        mainNav.classList.remove('nav-open');
+        if (burgerBtn) {
+          burgerBtn.classList.remove('open');
+          burgerBtn.setAttribute('aria-expanded', 'false');
+        }
+      }
+    }
 
     document.addEventListener("DOMContentLoaded", function() {
       const mapContainer = document.getElementById('map');
@@ -609,20 +632,8 @@
         const map = L.map('map', { center: [49.2872, -0.3122], zoom: 10, scrollWheelZoom: false });
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '&copy; OpenStreetMap' }).addTo(map);
 
-        L.circle([49.2872, -0.3122], { 
-          color: '#C5B382', 
-          fillColor: '#C5B382', 
-          fillOpacity: 0.18, 
-          radius: 32000 
-        }).addTo(map).bindPopup("Zone Élargie (+25 €)");
-
-        L.circle([49.2872, -0.3122], { 
-          color: '#4E7250', 
-          fillColor: '#8AA089', 
-          fillOpacity: 0.35, 
-          radius: 12500 
-        }).addTo(map).bindPopup("Zone Locale (Inclus)");
-
+        L.circle([49.2872, -0.3122], { color: '#C5B382', fillColor: '#C5B382', fillOpacity: 0.18, radius: 32000 }).addTo(map).bindPopup("Zone Élargie (+25 €)");
+        L.circle([49.2872, -0.3122], { color: '#4E7250', fillColor: '#8AA089', fillOpacity: 0.35, radius: 12500 }).addTo(map).bindPopup("Zone Locale (Inclus)");
         L.marker([49.2872, -0.3122]).addTo(map).bindPopup("<strong>Nacre Sépultures</strong><br>Hermanville-sur-Mer").openPopup();
 
         setTimeout(() => map.invalidateSize(), 500);
@@ -702,7 +713,7 @@
         cartList.appendChild(row);
       }
 
-      // 2. Options d'hommage et soins
+      // 2. Options
       const checkedOptions = document.querySelectorAll('input[name="Options"]:checked');
       checkedOptions.forEach(opt => {
         const optPrice = parseInt(opt.getAttribute('data-price'), 10);
