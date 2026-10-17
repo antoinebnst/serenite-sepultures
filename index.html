@@ -3,219 +3,806 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sérénité Sépultures | Entretien & Fleurissement de Tombes à Caen et Côte de Nacre</title>
-  <meta name="description" content="Artisan indépendant dédié à l'entretien doux, au nettoyage écologique et au fleurissement de sépultures familiales à Hermanville-sur-Mer, Caen et sur la Côte de Nacre.">
-  <link rel="stylesheet" href="style.css?v=10">
+  
+  <title>Sérénité Sépultures | Entretien & Fleurissement de Sépultures à Caen (14)</title>
+  <meta name="description" content="Artisan spécialisé dans l'entretien doux écologique, le nettoyage manuel et le fleurissement de sépultures à Caen et sur la Côte de Nacre. Rapport photo & vidéo sous 2h.">
+  <meta name="robots" content="index, follow">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <!-- Versionneur v=9 pour vider le cache navigateur -->
+  <link rel="stylesheet" href="style.css?v=9">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "name": "Sérénité Sépultures",
+    "description": "Entretien manuel écologique et fleurissement de sépultures à Caen et sur la Côte de Nacre.",
+    "areaServed": ["Caen", "Hermanville-sur-Mer", "Ouistreham", "Courseulles-sur-Mer", "Cabourg", "Bayeux"],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Hermanville-sur-Mer",
+      "postalCode": "14880",
+      "addressRegion": "Calvados",
+      "addressCountry": "FR"
+    },
+    "priceRange": "79€ - 349€"
+  }
+  </script>
 </head>
 <body>
 
-  <!-- Navigation -->
-  <header class="site-header">
-    <div class="container nav-container">
-      <div class="brand">
-        <span class="brand-title">SÉRÉNITÉ SÉPULTURES</span>
-        <span class="brand-subtitle">Artisan du Souvenir • Côte de Nacre</span>
-      </div>
-      <nav class="nav-links">
-        <a href="#prestations">Formules</a>
-        <a href="#artisan">Votre artisan</a>
-        <a href="#devis" class="btn btn-primary-nav">Demander un devis</a>
+  <!-- BANDEAU PROMOTIONNEL -->
+  <div class="top-banner">
+    🌿 <strong>Offre fidélité :</strong> -10% supplémentaires sur toute <strong>Formule 4 passages</strong> avec le code <span>PACK10</span>
+  </div>
+
+  <!-- NAVIGATION -->
+  <header class="header">
+    <div class="container nav-box">
+      <a href="#" class="brand-horizontal">
+        <img src="logo.png" alt="Sérénité Sépultures" class="brand-picto" onerror="this.style.display='none'">
+        <div class="brand-text">
+          <span class="brand-title">SÉRÉNITÉ SÉPULTURES</span>
+          <span class="brand-sub">MÉMOIRE • RESPECT • SÉRÉNITÉ</span>
+        </div>
+      </a>
+      <nav class="nav">
+        <a href="#presentation">Qui suis-je ?</a>
+        <a href="#engagements">Engagements</a>
+        <a href="#processus">Démarche</a>
+        <a href="#commander">Tarifs & Options</a>
+        <a href="#secteur">Secteur</a>
+        <a href="#contact" class="nav-contact-btn" title="Nous contacter">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect width="20" height="16" x="2" y="4" rx="2"/>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+          </svg>
+          <span>Contact</span>
+        </a>
       </nav>
     </div>
   </header>
 
-  <main>
-    <!-- Bannière Hero -->
-    <section class="hero-section">
-      <div class="container hero-content">
-        <span class="hero-badge">Entretien manuel doux & fleurissement local</span>
-        <h1>Prendre soin de la mémoire de vos proches avec dignité et délicatesse</h1>
-        <p class="hero-lead">
-          Interventions respectueuses à la main, sans nettoyeur haute pression ni produits agressifs. 
-          Bilan photographique complet envoyé avant et après chaque intervention.
-        </p>
-        <div class="hero-actions">
-          <a href="#devis" class="btn btn-cta">Commander une intervention</a>
-          <a href="#prestations" class="btn btn-secondary">Découvrir nos formules</a>
-        </div>
-        <p class="trust-note">Rayon d'action : Hermanville-sur-Mer, Ouistreham, Lion-sur-Mer, Caen et jusqu'à 40 min.</p>
+  <!-- BANNIÈRE HERO -->
+  <section class="hero">
+    <div class="container hero-content">
+      <h1>Entretien & Fleurissement de Sépultures à Caen et dans le Calvados</h1>
+      <p class="tagline">Mémoire • Respect • Sérénité</p>
+      <p class="desc">
+        Prenez soin du souvenir de vos proches à distance. Brossage doux manuel sans Kärcher, fleurissement local et envoi d'un bilan photo & vidéo après chaque intervention.
+      </p>
+      <div class="hero-actions">
+        <a href="#commander" class="btn-main">Composer ma formule</a>
+        <a href="#contact" class="btn-secondary">Me contacter</a>
       </div>
-    </section>
-
-    <!-- Section Prestations -->
-    <section id="prestations" class="section-padding">
-      <div class="container">
-        <div class="section-header">
-          <h2>Nos Formules d'Entretien</h2>
-          <p>Des soins attentifs adaptés au rythme des saisons et à vos besoins.</p>
-        </div>
-
-        <div class="pricing-grid">
-          <!-- Carte 1 -->
-          <div class="price-card">
-            <h3>Entretien Ponctuel</h3>
-            <p class="price-desc">Idéal avant un hommage, un anniversaire ou la Toussaint.</p>
-            <div class="price-amount">75 € <span>/ passage</span></div>
-            <ul class="features-list">
-              <li>Nettoyage manuel doux & brossage écologique</li>
-              <li>Désherbage complet & retrait des mousses</li>
-              <li>Lavage des vases, plaques et ornements</li>
-              <li>Envoi d'un compte-rendu avec photos Avant / Après</li>
-            </ul>
-            <a href="#devis" class="btn btn-card">Sélectionner</a>
-          </div>
-
-          <!-- Carte 2 : Mise en avant -->
-          <div class="price-card featured">
-            <div class="card-badge">Offre de lancement</div>
-            <h3>Sérénité 4 Saisons</h3>
-            <p class="price-desc">Un hommage soigné et entretenu tout au long de l'année.</p>
-            <div class="price-amount">260 € <span>/ an (4 passages)</span></div>
-            <p class="discount-callout">Remise exclusive de lancement pour les 20 premières familles</p>
-            <ul class="features-list">
-              <li><strong>4 passages par an</strong> (Printemps, Été, Toussaint, Hiver)</li>
-              <li>Nettoyage approfondi et préservation de la pierre</li>
-              <li>Fleurissement de saison inclus à chaque passage</li>
-              <li>Rapport photos détaillé envoyé à chaque intervention</li>
-            </ul>
-            <a href="#devis" class="btn btn-primary-card">Profiter de l'offre de lancement</a>
-          </div>
-
-          <!-- Carte 3 -->
-          <div class="price-card">
-            <h3>Fleurissement Seul</h3>
-            <p class="price-desc">Pour que la mémoire reste fleurie en toutes circonstances.</p>
-            <div class="price-amount">45 € <span>/ passage</span></div>
-            <ul class="features-list">
-              <li>Plante ou composition végétale locale de saison</li>
-              <li>Dépôt soigné et arrosage</li>
-              <li>Nettoyage rapide du support de vase</li>
-              <li>Photo envoyée sitôt la pose effectuée</li>
-            </ul>
-            <a href="#devis" class="btn btn-card">Sélectionner</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section Artisan / Interlocuteur -->
-    <section id="artisan" class="section-padding artisan-section">
-      <div class="container">
-        <div class="artisan-wrapper">
-          <div class="artisan-image-container">
-            <img src="antoine.jpg" alt="Antoine — Sérénité Sépultures" class="artisan-photo">
-          </div>
-          <div class="artisan-details">
-            <span class="artisan-badge">Artisan Indépendant</span>
-            <h2>Votre interlocuteur dédié</h2>
-            <p class="artisan-intro">
-              Je prends en charge personnellement chaque demande. Aucune sous-traitance : vous savez exactement qui intervient sur la tombe de votre famille.
-            </p>
-            
-            <div class="artisan-specs">
-              <div class="spec-row">
-                <span class="spec-icon">📍</span>
-                <div>
-                  <strong>Épicentre :</strong> Hermanville-sur-Mer
-                </div>
-              </div>
-              <div class="spec-row">
-                <span class="spec-icon">⏱️</span>
-                <div>
-                  <strong>Périmètre :</strong> 40 minutes de route max (Caen & Côte de Nacre)
-                </div>
-              </div>
-              <div class="spec-row">
-                <span class="spec-icon">🌿</span>
-                <div>
-                  <strong>Méthode :</strong> 100 % manuelle, respectueuse des matériaux et de l'environnement
-                </div>
-              </div>
-            </div>
-
-            <div class="artisan-direct-contact">
-              <p>Une question particulière ou un cas spécifique ?</p>
-              <a href="mailto:contact@serenite-sepultures.fr" class="contact-link">
-                ✉️ contact@serenite-sepultures.fr
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section Devis & Réservation -->
-    <section id="devis" class="section-padding contact-section">
-      <div class="container form-container">
-        <div class="section-header">
-          <h2>Demande d'intervention & Devis</h2>
-          <p>Réponse assurée sous 24h avec un devis clair et sans engagement.</p>
-        </div>
-
-        <form action="https://formspree.io/f/mqazknyz" method="POST" class="quote-form">
-          <div class="form-grid">
-            <div class="form-group">
-              <label for="name">Votre Nom & Prénom *</label>
-              <input type="text" id="name" name="name" required placeholder="Ex. Marie Dupont">
-            </div>
-            <div class="form-group">
-              <label for="email">Votre Adresse E-mail *</label>
-              <input type="email" id="email" name="email" required placeholder="contact@exemple.fr">
-            </div>
-            <div class="form-group">
-              <label for="phone">Numéro de Téléphone *</label>
-              <input type="tel" id="phone" name="phone" required placeholder="06 00 00 00 00">
-            </div>
-            <div class="form-group">
-              <label for="formula">Formule souhaitée</label>
-              <select id="formula" name="formula">
-                <option value="Offre de lancement - Sérénité 4 Saisons">Offre de lancement — Sérénité 4 Saisons</option>
-                <option value="Entretien Ponctuel">Entretien Ponctuel</option>
-                <option value="Fleurissement">Fleurissement de saison</option>
-                <option value="Sur-mesure">Demande sur-mesure</option>
-              </select>
-            </div>
-            <div class="form-group full-width">
-              <label for="cimetiere">Cimetière ou commune de la sépulture *</label>
-              <input type="text" id="cimetiere" name="cimetiere" required placeholder="Ex. Cimetière d'Hermanville-sur-Mer, concession famille...">
-            </div>
-            <div class="form-group full-width">
-              <label for="message">Précisions supplémentaires (dates, état de la stèle...)</label>
-              <textarea id="message" name="message" rows="4" placeholder="Indiquez ici vos souhaits particuliers ou dates importantes..."></textarea>
-            </div>
-          </div>
-          <button type="submit" class="btn btn-submit">Envoyer ma demande</button>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <!-- Pied de page -->
-  <footer class="site-footer">
-    <div class="container footer-content">
-      <div class="footer-col">
-        <span class="footer-brand">SÉRÉNITÉ SÉPULTURES</span>
-        <p>Préservation et respect de la mémoire familiale en Normandie.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Contact direct</h4>
-        <p>E-mail : <a href="mailto:contact@serenite-sepultures.fr">contact@serenite-sepultures.fr</a></p>
-        <p>Base d'intervention : Hermanville-sur-Mer (14880)</p>
-      </div>
-      <div class="footer-col">
-        <h4>Mentions</h4>
-        <p class="legal-text">
-          Micro-entreprise enregistrée en France. Prestations d'entretien et de fleurissement manuelles à l'exclusion de tout acte d'organisation funéraire.
-        </p>
+      <div class="trust-bar">
+        <div class="trust-item">📸 Rapport Photo/Vidéo sous 2h</div>
+        <div class="trust-item">🌿 Nettoyage manuel biodégradable</div>
+        <div class="trust-item">📍 Ancrage Côte de Nacre & Caen</div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 Sérénité Sépultures. Tous droits réservés.</p>
+  </section>
+
+  <!-- SECTION QUI SUIS-JE -->
+  <section id="presentation" class="container section">
+    <div class="about-grid">
+      <div class="about-text">
+        <span class="sub-badge">Artisanat & Proximité</span>
+        <h2>Qui suis-je ?</h2>
+        <p class="lead">
+          Habitant attaché à notre littoral normand et fondateur de Sérénité Sépultures, j'ai créé ce service à partir d'un constat humain et sincère.
+        </p>
+        <p>
+          Avec l'éloignement géographique des familles et les contraintes de mobilité, beaucoup souffrent de ne plus pouvoir fleurir ou entretenir la sépulture de leurs proches aussi souvent qu'ils le souhaitent. Mon rôle est d'être votre relais de confiance sur place.
+        </p>
+        <div class="about-signature">
+          <strong>Antoine — Votre artisan de confiance</strong>
+          <span>Basé à Hermanville-sur-Mer (14880)</span>
+        </div>
+      </div>
+
+      <div class="about-profile-card">
+        <!-- Photo Antoine avec balise img explicite -->
+        <div class="profile-img-wrap">
+          <img src="antoine.jpg" alt="Antoine — Sérénité Sépultures" class="profile-avatar">
+        </div>
+        <div class="profile-details">
+          <div class="profile-tag">Artisan Indépendant</div>
+          <h3>Votre Interlocuteur Dédié</h3>
+          <ul class="profile-list">
+            <li>📍 <strong>Épicentre :</strong> Hermanville-sur-Mer</li>
+            <li>⏱️ <strong>Périmètre :</strong> 40 min de route max</li>
+            <li>🌿 <strong>Méthode :</strong> 100% manuelle & écologique</li>
+            <li>🤝 <strong>Service :</strong> Écoute directe sans intermédiaire</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION ENGAGEMENTS -->
+  <section id="engagements" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2>Notre Exigence & Qualité de Service</h2>
+        <p>Une attention méticuleuse portée à chaque pierre.</p>
+      </div>
+
+      <div class="quality-grid">
+        <div class="quality-card">
+          <div class="quality-icon">🌿</div>
+          <h3>Nettoyage Doux Écologique</h3>
+          <p>Jamais de nettoyeur haute pression qui effrite la pierre. Brossage manuel à l'eau claire, savon neutre et anti-mousse biodégradable.</p>
+        </div>
+        <div class="quality-card">
+          <div class="quality-icon">📸</div>
+          <h3>Bilan Visuel sous 2h</h3>
+          <p>Dès la fin de l'intervention, réception par message ou courriel d'un compte-rendu photo et vidéo complet.</p>
+        </div>
+        <div class="quality-card">
+          <div class="quality-icon">🤝</div>
+          <h3>Artisan Local Dédié</h3>
+          <p>Aucun intermédiaire. C'est le même artisan qui étudie votre demande, se rend sur place et réalise les soins.</p>
+        </div>
+        <div class="quality-card">
+          <div class="quality-icon">🌸</div>
+          <h3>Fleurs Locales de Saison</h3>
+          <p>Approvisionnement auprès d'artisans fleuristes locaux (Caen, Ouistreham, Cabourg) pour privilégier la fraîcheur.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENCART VISUEL : PROCESSUS DE COMMANDE & PAIEMENT (MOTIF À POINTS) -->
+  <section id="processus" class="section section-process">
+    <div class="container">
+      <div class="section-header">
+        <span class="sub-badge">En toute sérénité</span>
+        <h2>Comment se déroule votre demande ?</h2>
+      </div>
+
+      <div class="process-steps-grid">
+        
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <div class="step-icon">📋</div>
+          <h3>Votre demande</h3>
+          <p>Vous choisissez votre formule, vos options et vous renseignez le cimetière concerné.</p>
+        </div>
+
+        <div class="step-arrow">→</div>
+
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <div class="step-icon">⏱️</div>
+          <h3>Retour sous 48h</h3>
+          <p>Antoine vérifie l'emplacement de la sépulture et confirme la faisabilité ainsi que la date.</p>
+        </div>
+
+        <div class="step-arrow">→</div>
+
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <div class="step-icon">💳</div>
+          <h3>Lien de paiement</h3>
+          <p>Réception d'un lien sécurisé par SMS ou e-mail pour régler par carte bancaire ou virement.</p>
+        </div>
+
+        <div class="step-arrow">→</div>
+
+        <div class="step-card">
+          <div class="step-num">4</div>
+          <div class="step-icon">🌿</div>
+          <h3>Intervention</h3>
+          <p>Nettoyage manuel doux, désherbage et dépôt de vos hommages floraux sur place.</p>
+        </div>
+
+        <div class="step-arrow">→</div>
+
+        <div class="step-card">
+          <div class="step-num">5</div>
+          <div class="step-icon">📸</div>
+          <h3>Rapport visuel</h3>
+          <p>Envoi immédiat de votre bilan complet photos et vidéo Avant / Après dès la fin des soins.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION COMMANDE DIRECTE -->
+  <section id="commander" class="container section">
+    <div class="section-header">
+      <span class="sub-badge">Simple & Sans Engagement</span>
+      <h2>Choisissez Votre Formule d'Entretien</h2>
+      <p>Comparez nos deux formules puis sélectionnez votre fréquence (passage unique ou formule 4 passages).</p>
+    </div>
+
+    <form id="order-form" action="https://formspree.io/f/mqazknyz" method="POST" onsubmit="handleOrderSubmission(event)" class="order-form-container">
+      
+      <!-- Étape 1 : Deux colonnes comparatives -->
+      <div class="order-block">
+        <h3>1. Choisissez votre formule et votre fréquence *</h3>
+        
+        <div class="compare-columns-grid">
+          
+          <!-- COLONNE 1 : FORMULE ESSENTIEL -->
+          <div class="compare-col">
+            <div class="compare-header">
+              <span class="compare-subtitle">Le soin rigoureux</span>
+              <h4 class="compare-title">Formule ESSENTIEL</h4>
+              <p class="compare-lead">Nettoyage manuel soigné à l'eau claire et au savon écologique neutre (sans Kärcher).</p>
+            </div>
+
+            <ul class="compare-benefits">
+              <li>✓ Nettoyage manuel doux (eau & savon écologique neutre)</li>
+              <li>✓ Désherbage minutieux et balayage du pourtour immédiat</li>
+              <li>✓ Lavage méticuleux des plaques commémoratives, pots et vases</li>
+              <li>✓ Arrosage des plantations déjà existantes sur le monument</li>
+              <li>✓ Bilan complet photos Avant / Après envoyé sous 2h</li>
+            </ul>
+
+            <div class="compare-options-group">
+              <span class="compare-group-label">Sélectionnez votre fréquence :</span>
+              
+              <label class="choice-subcard">
+                <input type="radio" name="Formule" value="Essentiel — Passage Unique (79 €)" data-price="79" data-ispack="false" checked onchange="onPlanChange()">
+                <div class="choice-subcard-text">
+                  <div class="choice-title-line">
+                    <strong>Passage unique</strong>
+                    <span class="choice-price">79 €</span>
+                  </div>
+                  <small>Intervention ponctuelle sans engagement</small>
+                </div>
+              </label>
+
+              <label class="choice-subcard">
+                <input type="radio" name="Formule" value="Formule 4 Passages — Essentiel (279 €)" data-price="279" data-ispack="true" onchange="onPlanChange()">
+                <div class="choice-subcard-text">
+                  <div class="choice-title-line">
+                    <strong>Formule 4 passages</strong>
+                    <span class="choice-price">279 €</span>
+                  </div>
+                  <small class="save-tag">Économie de 37 € (~69 € / passage)</small>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- COLONNE 2 : FORMULE CONFORT -->
+          <div class="compare-col compare-col-featured">
+            <span class="featured-badge">Recommandée • Hommage fleuri</span>
+            <div class="compare-header">
+              <span class="compare-subtitle">Le grand soin & l'hommage fleuri</span>
+              <h4 class="compare-title">Formule CONFORT</h4>
+              <p class="compare-lead">Tout le socle Essentiel enrichi d'un traitement marin, de fleurs fraîches locales et d'un bilan vidéo.</p>
+            </div>
+
+            <ul class="compare-benefits">
+              <li>✓ <strong>L'intégralité des prestations de la formule Essentiel</strong></li>
+              <li>✓ Traitement préventif anti-mousse marin biodégradable</li>
+              <li>✓ Plante fraîche de saison ou bouquet d'artisan fleuriste local</li>
+              <li>✓ Bilan complet photos et vidéo envoyé sous 2h</li>
+            </ul>
+
+            <div class="compare-options-group">
+              <span class="compare-group-label">Sélectionnez votre fréquence :</span>
+              
+              <label class="choice-subcard">
+                <input type="radio" name="Formule" value="Confort — Passage Unique (99 €)" data-price="99" data-ispack="false" onchange="onPlanChange()">
+                <div class="choice-subcard-text">
+                  <div class="choice-title-line">
+                    <strong>Passage unique</strong>
+                    <span class="choice-price">99 €</span>
+                  </div>
+                  <small>Intervention complète avec fleurissement</small>
+                </div>
+              </label>
+
+              <label class="choice-subcard choice-highlight">
+                <input type="radio" name="Formule" value="Formule 4 Passages — Confort (349 €)" data-price="349" data-ispack="true" onchange="onPlanChange()">
+                <div class="choice-subcard-text">
+                  <div class="choice-title-line">
+                    <strong>Formule 4 passages</strong>
+                    <span class="choice-price">349 €</span>
+                  </div>
+                  <small class="save-tag gold-tag">Économie de 47 € (~87 € / passage fleuri)</small>
+                </div>
+              </label>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Étape 2 : Catalogue d'options -->
+      <div class="order-block">
+        <h3>2. Options & Hommages à la carte (facultatif)</h3>
+        
+        <p class="options-category-title">🌸 Fleurissement & Hommages</p>
+        <div class="options-checklist">
+          
+          <label class="option-check-item">
+            <input type="checkbox" name="Options" value="Fleurissement frais de saison — Petite composition (39 €)" data-price="39" onchange="calculateTotal()">
+            <div class="option-check-info">
+              <strong>Fleurissement frais — Petite composition / bouquet</strong>
+              <span>Sélection auprès d'artisans fleuristes locaux partenaires</span>
+            </div>
+            <span class="option-check-badge">+ 39 €</span>
+          </label>
+
+          <label class="option-check-item">
+            <input type="checkbox" name="Options" value="Fleurissement frais de saison — Coupe généreuse (69 €)" data-price="69" onchange="calculateTotal()">
+            <div class="option-check-info">
+              <strong>Fleurissement frais — Moyenne composition / coupe généreuse</strong>
+              <span>Composition florale généreuse de plantes ou fleurs fraîches locales</span>
+            </div>
+            <span class="option-check-badge">+ 69 €</span>
+          </label>
+
+          <label class="option-check-item">
+            <input type="checkbox" name="Options" value="Fleurs synthétiques Haute Résistance (69 €)" data-price="69" onchange="calculateTotal()">
+            <div class="option-check-info">
+              <strong>Fleurissement Haute Résistance (synthétique haut de gamme)</strong>
+              <span>Résistant aux embruns marins et intempéries prolongées</span>
+            </div>
+            <span class="option-check-badge">+ 69 €</span>
+          </label>
+
+          <label class="option-check-item">
+            <input type="checkbox" name="Options" value="Veilleuse d'hommage du souvenir (59 €)" data-price="59" onchange="calculateTotal()">
+            <div class="option-check-info">
+              <strong>Veilleuse d'hommage du souvenir</strong>
+              <span>Dépôt et allumage d'une veilleuse funéraire protectrice sur la pierre</span>
+            </div>
+            <span class="option-check-badge">+ 59 €</span>
+          </label>
+
+          <label class="option-check-item">
+            <input type="checkbox" name="Options" value="Dépôt message manuscrit Jour J (29 €)" data-price="29" onchange="calculateTotal()">
+            <div class="option-check-info">
+              <strong>Dépôt d'un message manuscrit personnalisé le Jour J</strong>
+              <span>Carte d'hommage déposée à une date anniversaire choisie</span>
+            </div>
+            <span class="option-check-badge">+ 29 €</span>
+          </label>
+
+          <label class="option-check-item">
+            <input type="checkbox" name="Options" value="Lanterne solaire funéraire du souvenir (35 €)" data-price="35" onchange="calculateTotal()">
+            <div class="option-check-info">
+              <strong>Lanterne solaire funéraire du souvenir</strong>
+              <span>Veilleuse étanche et autonome s'illuminant chaque nuit</span>
+            </div>
+            <span class="option-check-badge">+ 35 €</span>
+          </label>
+
+        </div>
+
+        <p class="options-category-title" style="margin-top: 1.5rem;">🛡️ Soins Spécifiques & Vigilance Côtière</p>
+        <div class="options-checklist">
+
+          <label class="option-check-item">
+            <input type="checkbox" name="Options" value="Passage Alerte Tempête (35 €)" data-price="35" onchange="calculateTotal()">
+            <div class="option-check-info">
+              <strong>Passage « Alerte Tempête »</strong>
+              <span>Remise en ordre express suite aux coups de vent (redressage, évacuation des débris)</span>
+            </div>
+            <span class="option-check-badge">+ 35 €</span>
+          </label>
+
+          <label class="option-check-item">
+            <input type="checkbox" name="Options" value="Traitement imperméabilisant / hydrofuge (39 €)" data-price="39" onchange="calculateTotal()">
+            <div class="option-check-info">
+              <strong>Traitement imperméabilisant / hydrofuge longue durée</strong>
+              <span>Protection invisible contre les infiltrations et les embruns (pierres calcaires/poreuses)</span>
+            </div>
+            <span class="option-check-badge">+ 39 €</span>
+          </label>
+
+          <label class="option-check-item">
+            <input type="checkbox" name="Options" value="Rénovation et changement des gravillons (49 €)" data-price="49" onchange="calculateTotal()">
+            <div class="option-check-info">
+              <strong>Rénovation et changement des gravillons</strong>
+              <span>Nettoyage du réceptacle, évacuation des graviers noircis et renouvellement par des gravillons blancs neufs</span>
+            </div>
+            <span class="option-check-badge">+ 49 €</span>
+          </label>
+
+        </div>
+
+      </div>
+
+      <!-- Étape 3 : Lieu & Déplacement automatique -->
+      <div class="order-block summary-block">
+        <div class="summary-details">
+          <h3>3. Lieu d'intervention & Coordonnées</h3>
+          
+          <div class="input-wrap">
+            <label for="client-commune">Commune du cimetière *</label>
+            <select id="client-commune" name="Commune" required onchange="calculateTotal()">
+              <option value="" disabled selected>— Sélectionnez la commune —</option>
+              
+              <optgroup label="Zone Locale (Déplacement inclus - 0 €)">
+                <option value="Hermanville-sur-Mer" data-fee="0">Hermanville-sur-Mer</option>
+                <option value="Ouistreham" data-fee="0">Ouistreham</option>
+                <option value="Colleville-Montgomery" data-fee="0">Colleville-Montgomery</option>
+                <option value="Lion-sur-Mer" data-fee="0">Lion-sur-Mer</option>
+                <option value="Luc-sur-Mer" data-fee="0">Luc-sur-Mer</option>
+                <option value="Langrune-sur-Mer" data-fee="0">Langrune-sur-Mer</option>
+                <option value="Saint-Aubin-sur-Mer" data-fee="0">Saint-Aubin-sur-Mer</option>
+                <option value="Bernières-sur-Mer" data-fee="0">Bernières-sur-Mer</option>
+                <option value="Courseulles-sur-Mer" data-fee="0">Courseulles-sur-Mer</option>
+                <option value="Douvres-la-Délivrande" data-fee="0">Douvres-la-Délivrande</option>
+                <option value="Biéville-Beuville" data-fee="0">Biéville-Beuville</option>
+                <option value="Blainville-sur-Orne" data-fee="0">Blainville-sur-Orne</option>
+                <option value="Hérouville-Saint-Clair" data-fee="0">Hérouville-Saint-Clair</option>
+                <option value="Caen" data-fee="0">Caen (tous cimetières)</option>
+                <option value="Épron" data-fee="0">Épron</option>
+                <option value="Saint-Contest" data-fee="0">Saint-Contest</option>
+              </optgroup>
+
+              <optgroup label="Zone Élargie (+25 €)">
+                <option value="Cabourg" data-fee="25">Cabourg</option>
+                <option value="Dives-sur-Mer" data-fee="25">Dives-sur-Mer</option>
+                <option value="Houlgate" data-fee="25">Houlgate</option>
+                <option value="Villers-sur-Mer" data-fee="25">Villers-sur-Mer</option>
+                <option value="Deauville" data-fee="25">Deauville</option>
+                <option value="Trouville-sur-Mer" data-fee="25">Trouville-sur-Mer</option>
+                <option value="Bayeux" data-fee="25">Bayeux</option>
+                <option value="Creully-sur-Seulles" data-fee="25">Creully-sur-Seulles</option>
+                <option value="Tilly-sur-Seulles" data-fee="25">Tilly-sur-Seulles</option>
+                <option value="Mézidon Vallée d'Auge" data-fee="25">Mézidon Vallée d'Auge</option>
+              </optgroup>
+
+              <optgroup label="Autre secteur">
+                <option value="autre_locale" data-fee="0">Autre commune à moins de 20 min d'Hermanville (0 €)</option>
+                <option value="autre_elargie" data-fee="25">Autre commune entre 20 et 40 min d'Hermanville (+25 €)</option>
+                <option value="hors_zone" data-fee="0">Autre commune à plus de 40 min (Sur devis spécifique)</option>
+              </optgroup>
+            </select>
+          </div>
+
+          <div class="input-wrap">
+            <label for="client-cimetiere-nom">Nom du cimetière & concession *</label>
+            <input type="text" id="client-cimetiere-nom" name="Cimetiere_Concession" required placeholder="Ex : Cimetière communal, Concession Famille Martin">
+          </div>
+
+          <div class="form-grid-2">
+            <div class="input-wrap">
+              <label for="client-nom">Votre Nom & Prénom *</label>
+              <input type="text" id="client-nom" name="Nom_Client" required placeholder="Ex : Marie Dupont">
+            </div>
+            <div class="input-wrap">
+              <label for="client-tel">Téléphone *</label>
+              <input type="tel" id="client-tel" name="Telephone" required placeholder="Ex : 06 12 34 56 78">
+            </div>
+          </div>
+
+          <div class="input-wrap">
+            <label for="client-details">Précisions (date d'hommage, particularités de la concession...)</label>
+            <textarea id="client-details" name="Details_Message" rows="3" placeholder="Indiquez ici toute information utile pour l'organisation..."></textarea>
+          </div>
+        </div>
+
+        <!-- Ticket récapitulatif -->
+        <div class="cart-box">
+          <h4>Récapitulatif de votre commande</h4>
+          <div id="cart-items" class="cart-items-list"></div>
+
+          <div class="promo-box">
+            <label for="promo-input">Code de réduction</label>
+            <div class="promo-input-group">
+              <input type="text" id="promo-input" placeholder="Ex : PACK10">
+              <button type="button" class="btn-apply-promo" onclick="applyPromoCode()">Appliquer</button>
+            </div>
+            <p id="promo-msg" class="promo-feedback"></p>
+          </div>
+
+          <input type="hidden" name="Frais_Deplacement" id="hidden-frais" value="0 €">
+          <input type="hidden" name="Remise_Promo" id="hidden-promo" value="Aucune">
+          <input type="hidden" name="Total_TTC" id="hidden-total" value="79 €">
+
+          <div class="cart-total-line">
+            <span>Total estimé :</span>
+            <strong id="cart-total-price">79 €</strong>
+          </div>
+          <button type="submit" class="btn-validate-order">
+            Transmettre ma commande à Antoine
+          </button>
+          <p class="cart-notice">🌿 Aucun paiement immédiat requis. Antoine vous confirme la date et les détails sous 48h.</p>
+        </div>
+      </div>
+
+    </form>
+  </section>
+
+  <!-- PÉRIMÈTRE GÉOGRAPHIQUE -->
+  <section id="secteur" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2>Périmètre d'Intervention Géographique</h2>
+        <p>Épicentre des interventions : Hermanville-sur-Mer (14880) — Rayon maximum de 40 min de trajet</p>
+      </div>
+      
+      <div class="map-layout">
+        <div class="map-wrapper">
+          <div id="map"></div>
+          <div class="map-legend-bar">
+            <span><strong style="color: #2E7D32;">● Zone Verte :</strong> Déplacement inclus (&lt; 20 min)</span>
+            <span><strong style="color: #C5B382;">● Zone Or :</strong> Forfait +25 € (20 à 40 min)</span>
+          </div>
+        </div>
+
+        <div class="zones-detail">
+          <div class="zone-card">
+            <div class="zone-badge zone-inclus">Frais de déplacement inclus</div>
+            <h3>📍 Zone Locale (&lt; 20 min de route)</h3>
+            <p><strong>Côte de Nacre & Littoral :</strong> Hermanville-sur-Mer, Ouistreham, Colleville-Montgomery, Lion-sur-Mer, Luc-sur-Mer, Langrune-sur-Mer, Saint-Aubin-sur-Mer, Bernières-sur-Mer, Courseulles-sur-Mer.</p>
+            <p><strong>Agglomération Caennaise :</strong> Caen (tous cimetières), Hérouville-Saint-Clair, Épron, Biéville-Beuville, Blainville-sur-Orne, Douvres-la-Délivrande...</p>
+          </div>
+
+          <div class="zone-card">
+            <div class="zone-badge zone-supp">+ 25 € par déplacement</div>
+            <h3>🚗 Zone Élargie (20 à 40 min de route)</h3>
+            <p><strong>Côte Fleurie :</strong> Cabourg, Dives-sur-Mer, Houlgate, Villers-sur-Mer, Deauville, Trouville-sur-Mer.</p>
+            <p><strong>Bessin & Plaine :</strong> Bayeux, Creully-sur-Seulles, Tilly-sur-Seulles...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BANDEAU CONTACT DIRECT -->
+  <section id="contact" class="section section-contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="sub-badge">À votre écoute</span>
+        <h2>Me contacter</h2>
+        <p>Une question ou une demande personnalisée ? Échangeons directement.</p>
+      </div>
+
+      <div class="contact-actions-row">
+        <a href="tel:0659722240" class="contact-direct-btn">
+          <span class="contact-btn-icon">📞</span>
+          <div class="contact-btn-text">
+            <small>Téléphone</small>
+            <strong>06 59 72 22 40</strong>
+          </div>
+        </a>
+
+        <a href="mailto:antoine.bnst@gmail.com" class="contact-direct-btn">
+          <span class="contact-btn-icon">✉️</span>
+          <div class="contact-btn-text">
+            <small>Adresse mail</small>
+            <strong>antoine.bnst@gmail.com</strong>
+          </div>
+        </a>
+
+        <div class="contact-direct-btn static-btn">
+          <span class="contact-btn-icon">📍</span>
+          <div class="contact-btn-text">
+            <small>Atelier & Siège</small>
+            <strong>Hermanville-sur-Mer (14)</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-content">
+      <p>&copy; 2026 Sérénité Sépultures — Entretien et fleurissement de sépultures en Normandie.</p>
     </div>
   </footer>
 
+  <!-- SCRIPT LEAFLET & LOGIQUE DE COMMANDE -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script>
+    let appliedPromoCode = "";
+
+    document.addEventListener("DOMContentLoaded", function() {
+      const mapContainer = document.getElementById('map');
+      if (mapContainer) {
+        const map = L.map('map', { center: [49.2872, -0.3122], zoom: 10, scrollWheelZoom: false });
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '&copy; OpenStreetMap' }).addTo(map);
+
+        L.circle([49.2872, -0.3122], { 
+          color: '#C5B382', 
+          fillColor: '#C5B382', 
+          fillOpacity: 0.18, 
+          radius: 32000 
+        }).addTo(map).bindPopup("Zone Élargie (+25 €)");
+
+        L.circle([49.2872, -0.3122], { 
+          color: '#4E7250', 
+          fillColor: '#8AA089', 
+          fillOpacity: 0.35, 
+          radius: 12500 
+        }).addTo(map).bindPopup("Zone Locale (Inclus)");
+
+        L.marker([49.2872, -0.3122]).addTo(map).bindPopup("<strong>Sérénité Sépultures</strong><br>Hermanville-sur-Mer").openPopup();
+
+        setTimeout(() => map.invalidateSize(), 500);
+        window.addEventListener('resize', () => map.invalidateSize());
+      }
+      calculateTotal();
+    });
+
+    function onPlanChange() {
+      const selectedPlan = document.querySelector('input[name="Formule"]:checked');
+      const isPack = selectedPlan && selectedPlan.getAttribute('data-ispack') === 'true';
+      const msg = document.getElementById('promo-msg');
+
+      if (appliedPromoCode === "PACK10" && !isPack) {
+        appliedPromoCode = "";
+        if (msg) {
+          msg.className = "promo-feedback promo-error";
+          msg.innerText = "ℹ️ Le code PACK10 est réservé aux Formules 4 passages.";
+        }
+      }
+      calculateTotal();
+    }
+
+    function applyPromoCode() {
+      const input = document.getElementById('promo-input');
+      const msg = document.getElementById('promo-msg');
+      const code = input.value.trim().toUpperCase();
+
+      const selectedPlan = document.querySelector('input[name="Formule"]:checked');
+      const isPack = selectedPlan && selectedPlan.getAttribute('data-ispack') === 'true';
+
+      if (!code) {
+        appliedPromoCode = "";
+        msg.innerText = "";
+        calculateTotal();
+        return;
+      }
+
+      if (code === "PACK10") {
+        if (isPack) {
+          appliedPromoCode = "PACK10";
+          msg.className = "promo-feedback promo-success";
+          msg.innerText = "✓ Code PACK10 appliqué (-10% sur votre Formule 4 passages)";
+        } else {
+          appliedPromoCode = "";
+          msg.className = "promo-feedback promo-error";
+          msg.innerText = "✗ Le code PACK10 s'applique uniquement aux Formules 4 passages.";
+        }
+      } else {
+        appliedPromoCode = "";
+        msg.className = "promo-feedback promo-error";
+        msg.innerText = "✗ Code promotionnel invalide.";
+      }
+
+      calculateTotal();
+    }
+
+    function calculateTotal() {
+      let subtotal = 0;
+      let packPrice = 0;
+      const cartList = document.getElementById('cart-items');
+      if (!cartList) return;
+      cartList.innerHTML = '';
+
+      // 1. Formule
+      const selectedPlan = document.querySelector('input[name="Formule"]:checked');
+      let isPack = false;
+      if (selectedPlan) {
+        const planPrice = parseInt(selectedPlan.getAttribute('data-price'), 10);
+        subtotal += planPrice;
+        isPack = selectedPlan.getAttribute('data-ispack') === 'true';
+        if (isPack) packPrice = planPrice;
+        
+        const row = document.createElement('div');
+        row.className = 'cart-item-row';
+        row.innerHTML = `<span>${selectedPlan.value}</span><strong>${planPrice} €</strong>`;
+        cartList.appendChild(row);
+      }
+
+      // 2. Options d'hommage et soins
+      const checkedOptions = document.querySelectorAll('input[name="Options"]:checked');
+      checkedOptions.forEach(opt => {
+        const optPrice = parseInt(opt.getAttribute('data-price'), 10);
+        subtotal += optPrice;
+
+        const row = document.createElement('div');
+        row.className = 'cart-item-row';
+        row.innerHTML = `<span>+ ${opt.value}</span><strong>${optPrice} €</strong>`;
+        cartList.appendChild(row);
+      });
+
+      // 3. Frais de déplacement
+      const selectCommune = document.getElementById('client-commune');
+      let currentFeeText = "Inclus (0 €)";
+      if (selectCommune && selectCommune.selectedIndex > 0) {
+        const selectedOption = selectCommune.options[selectCommune.selectedIndex];
+        const fee = parseInt(selectedOption.getAttribute('data-fee') || "0", 10);
+        const communeName = selectedOption.text;
+
+        const row = document.createElement('div');
+        row.className = 'cart-item-row';
+
+        if (selectedOption.value === "hors_zone") {
+          currentFeeText = "Sur devis spécifique";
+          row.innerHTML = `<span>Déplacement : ${communeName}</span><strong style="color: #C5B382;">Sur Devis</strong>`;
+        } else if (fee > 0) {
+          subtotal += fee;
+          currentFeeText = "+ " + fee + " €";
+          row.innerHTML = `<span>Déplacement : ${communeName}</span><strong>+ ${fee} €</strong>`;
+        } else {
+          currentFeeText = "Inclus (0 €)";
+          row.innerHTML = `<span>Déplacement : ${communeName}</span><strong style="color: #2E7D32;">Inclus (0 €)</strong>`;
+        }
+        cartList.appendChild(row);
+      }
+      document.getElementById('hidden-frais').value = currentFeeText;
+
+      // 4. Déduction Code PACK10
+      let totalFinal = subtotal;
+      if (appliedPromoCode === "PACK10" && isPack && packPrice > 0) {
+        const remise = Math.round(packPrice * 0.10);
+        totalFinal = subtotal - remise;
+
+        const promoRow = document.createElement('div');
+        promoRow.className = 'cart-item-row promo-discount-row';
+        promoRow.innerHTML = `<span>Remise fidélité Formule 4 passages (-10%)</span><strong style="color: #2E7D32;">- ${remise} €</strong>`;
+        cartList.appendChild(promoRow);
+        document.getElementById('hidden-promo').value = "PACK10 (-" + remise + " €)";
+      } else {
+        document.getElementById('hidden-promo').value = "Aucune";
+      }
+
+      document.getElementById('cart-total-price').innerText = totalFinal + " €";
+      document.getElementById('hidden-total').value = totalFinal + " €";
+      return totalFinal;
+    }
+
+    async function handleOrderSubmission(e) {
+      e.preventDefault();
+      const form = document.getElementById('order-form');
+      const btn = form.querySelector('.btn-validate-order');
+
+      btn.innerText = "Transmission en cours...";
+      btn.disabled = true;
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          form.innerHTML = `
+            <div style="text-align: center; padding: 3.5rem 1.5rem; background: #FFFFFF; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 4px 15px rgba(0,0,0,0.04);">
+              <div style="font-size: 3.2rem; margin-bottom: 1rem;">🌿</div>
+              <h3 style="font-family: 'Cinzel', serif; color: var(--blue); font-size: 1.8rem; margin-bottom: 0.8rem;">Demande bien transmise !</h3>
+              <p style="font-size: 1.05rem; color: var(--text-dark); max-width: 600px; margin: 0 auto 1.5rem; line-height: 1.6;">
+                Merci pour votre confiance. Antoine étudie la faisabilité de l'intervention et vous recontacte sous <strong>48h</strong> avec votre confirmation et votre lien de paiement sécurisé.
+              </p>
+              <div style="display: inline-block; background: #F4F6F4; padding: 0.8rem 1.4rem; border-radius: 8px; font-size: 0.9rem; color: var(--blue);">
+                📞 Besoin d'échanger directement ? <strong>06 59 72 22 40</strong>
+              </div>
+            </div>
+          `;
+          window.location.hash = "commander";
+        } else {
+          btn.innerText = "Transmettre ma commande à Antoine";
+          btn.disabled = false;
+          alert("Une erreur est survenue lors de l'envoi. Vous pouvez contacter Antoine directement au 06 59 72 22 40.");
+        }
+      } catch (err) {
+        btn.innerText = "Transmettre ma commande à Antoine";
+        btn.disabled = false;
+        alert("Impossible d'envoyer la demande. Merci d'appeler directement le 06 59 72 22 40.");
+      }
+    }
+  </script>
 </body>
 </html>
