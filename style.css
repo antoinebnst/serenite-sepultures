@@ -150,7 +150,7 @@ body {
   stroke: currentColor;
 }
 
-/* BOUTON BURGER (DÉSACTIVÉ SUR GRAND ÉCRAN) */
+/* BOUTON BURGER */
 .burger-btn {
   display: none;
   background: transparent;
@@ -172,7 +172,6 @@ body {
   transition: all 0.3s ease;
 }
 
-/* ANIMATION DU BURGER EN CROIX */
 .burger-btn.open span:nth-child(1) {
   transform: translateY(8px) rotate(45deg);
 }
@@ -772,7 +771,7 @@ body {
   color: var(--green);
 }
 
-/* SECTION 3 : LIEU & COORDONNÉES */
+/* SECTION 3 : LIEU & COORDONNÉES (RESPONSIVE) */
 .summary-block {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
@@ -1175,12 +1174,10 @@ footer {
     padding: 0.6rem 0;
   }
 
-  /* ACTIVATION DU BURGER */
   .burger-btn {
     display: flex;
   }
 
-  /* LE MENU DEVIENT UN TIROIR DÉROULANT SOUS L'EN-TÊTE */
   .nav {
     display: none;
     position: absolute;

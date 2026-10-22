@@ -13,8 +13,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-  <!-- Versionneur v=18 -->
-  <link rel="stylesheet" href="style.css?v=18">
+  <!-- Versionneur v=19 -->
+  <link rel="stylesheet" href="style.css?v=19">
 
   <script type="application/ld+json">
   {
@@ -160,7 +160,7 @@
         <div class="quality-card">
           <div class="quality-icon">🌸</div>
           <h3>Fleurs Locales de Saison</h3>
-          <p>Approvisionnement auprès de fleuristes locaux partenaires (Caen, Ouistreham, Cabourg) pour privilégier la fraîcheur.</p>
+          <p>Approvisionnement auprès de fleuristes partenaires locaux (Caen, Ouistreham, Cabourg) pour privilégier la fraîcheur.</p>
         </div>
       </div>
     </div>
@@ -416,14 +416,14 @@
         </div>
       </div>
 
-      <!-- Étape 3 : Lieu & Déplacement automatique -->
+      <!-- Étape 3 : Lieu & Coordonnées complètes -->
       <div class="order-block summary-block">
         <div class="summary-details">
           <h3>3. Lieu d'intervention & Coordonnées</h3>
           
           <div class="input-wrap">
             <label for="client-commune">Commune du cimetière *</label>
-            <select id="client-commune" name="Commune" required onchange="calculateTotal()">
+            <select id="client-commune" name="Commune_Cimetiere" required onchange="calculateTotal()">
               <option value="" disabled selected>— Sélectionnez la commune —</option>
               
               <optgroup label="Zone Locale (Déplacement inclus - 0 €)">
@@ -478,8 +478,19 @@
             </div>
             <div class="input-wrap">
               <label for="client-tel">Téléphone *</label>
-              <input type="tel" id="client-tel" name="Telephone" required placeholder="Ex : 06 12 34 56 78">
+              <input type="tel" id="client-tel" name="Telephone_Client" required placeholder="Ex : 06 12 34 56 78">
             </div>
+          </div>
+
+          <!-- NOUVEAUX CHAMPS COORDONNÉES PERSONNELLES -->
+          <div class="input-wrap">
+            <label for="client-email">Votre Adresse e-mail *</label>
+            <input type="email" id="client-email" name="Email_Client" required placeholder="Ex : marie.dupont@email.fr">
+          </div>
+
+          <div class="input-wrap">
+            <label for="client-adresse">Votre Adresse postale (facturation)</label>
+            <input type="text" id="client-adresse" name="Adresse_Postale_Client" placeholder="Ex : 12 rue des Fleurs, 14000 Caen">
           </div>
 
           <div class="input-wrap">
